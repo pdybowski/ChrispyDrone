@@ -305,4 +305,21 @@
         android:visibility="gone"
         android:gravity="center" />
     <!--android:layout_alignLeft="@+id/camera2"-->
+
+    <!--POINT IN THE MIDDLE-->
+    <View
+        android:id="@+id/pointer_1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/border_circle"
+        android:visibility="visible"/>
+
+    <View
+        android:id="@+id/pointer_2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/border_squere"
+        android:visibility="gone"/>
 </RelativeLayout>
