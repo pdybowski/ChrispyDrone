@@ -165,25 +165,39 @@
         android:layout_marginBottom="8dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:visibility="gone"/>
+        android:visibility="invisible"/>
 
-    <Button
-        android:id="@+id/map_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/CameraCapturePanel"
-        android:layout_alignParentRight="true"
-        android:background="@color/dark_gray"
-        android:text="@string/btn_map"/>
+        <dji.ux.widget.controls.PictureVideoSwitch
+            android:id="@+id/ChangeCameraCapturePanel"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            android:layout_below="@id/camera"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/black_transparent"/>
 
-    <dji.ux.widget.controls.CameraControlsWidget
-        android:id="@+id/CameraCapturePanel"
-        android:layout_width="50dp"
-        android:layout_height="213dp"
-        android:layout_below="@id/camera"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"/>
+        <dji.ux.widget.controls.CameraCaptureWidget
+            android:id="@+id/CameraCapturePanel"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/ChangeCameraCapturePanel"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/black_transparent"/>
+
+        <Button
+            android:id="@+id/menu_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/CameraCapturePanel"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:text="@string/btn_btn"
+            android:textColor="@color/white"
+            android:background="@color/black_transparent"/>
 
     <!-- Everything below this line will appear on top of the full-screen map widget -->
 
@@ -211,16 +225,13 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:padding="0dp">
-
-        <!--<dji.ux.widget.dashboard.DashboardWidget
+        <dji.ux.widget.dashboard.CompassWidget
             android:id="@+id/Compass"
-            android:layout_width="450dp"
-            android:layout_height="94dp"
+            android:layout_width="91dp"
+            android:layout_height="91dp"
             android:layout_marginRight="12dp"
-            android:clipChildren="false"
-            tools:ignore="RtlHardcoded"/>-->
+            tools:ignore="RtlHardcoded"/>
     </LinearLayout>
-
 
     <!--Take off and return home buttons on left -->
     <LinearLayout
@@ -306,20 +317,69 @@
         android:gravity="center" />
     <!--android:layout_alignLeft="@+id/camera2"-->
 
-    <!--POINT IN THE MIDDLE-->
-    <View
-        android:id="@+id/pointer_1"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_centerInParent="true"
-        android:background="@drawable/border_circle"
-        android:visibility="visible"/>
+    <!--OVERLAY MENU-->
+    <LinearLayout
+        android:id="@+id/options"
+        android:layout_width="108dp"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@+id/menu_button"
+        android:layout_marginTop="203dp"
+        android:visibility="invisible">
+        <Button
+            android:id="@+id/circle_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:text="@string/circle_btn"
+            android:textColor="@color/white"
+            android:background="@color/black_transparent"/>
+        <Button
+            android:id="@+id/squere_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toLeftOf="@+id/circle_button"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:text="@string/squere_btn"
+            android:textColor="@color/white"
+            android:background="@color/black_transparent"/>
+    </LinearLayout>
 
-    <View
-        android:id="@+id/pointer_2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+    <!--circle-->
+    <LinearLayout
+        android:id="@+id/pointer1"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:background="@drawable/border_circle"
         android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:visibility="invisible">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="+"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!--squere-->
+    <LinearLayout
+        android:id="@+id/pointer2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:gravity="center"
         android:background="@drawable/border_squere"
-        android:visibility="gone"/>
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:visibility="invisible">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="+"
+            android:textSize="12sp" />
+    </LinearLayout>
 </RelativeLayout>

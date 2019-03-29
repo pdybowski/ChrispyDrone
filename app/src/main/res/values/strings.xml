@@ -42,7 +42,9 @@
     <string name="dji_account_indicator">DJI Account Login Indicator</string>
     <string name="new_color">New Color</string>
     <string name="sync">Sync</string>
-    <string name="btn_map">map</string>
+    <string name="btn_btn">MENU</string>
+    <string name="circle_btn">O</string>
+    <string name="squere_btn">[]</string>
     <string-array name="iconArray">
         <item>Aircraft</item>
         <item>Home</item>

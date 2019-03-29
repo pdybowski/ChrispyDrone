@@ -1,6 +1,7 @@
 package com.dji.chrispy.drone;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.DisplayMetrics;
@@ -8,7 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.dji.mapkit.core.maps.DJIMap;
 import com.dji.mapkit.core.models.DJILatLng;
@@ -29,6 +32,13 @@ public class CompleteWidgetActivity extends Activity {
     private FrameLayout secondaryVideoView;
     private boolean isMapMini = true;
 
+
+    private Button menuBtn;
+    private Button circleBtn;
+    private Button squereBtn;
+    private LinearLayout options;
+    private LinearLayout pointerCircle;
+    private LinearLayout pointerSquere;
     private int height;
     private int width;
     private int margin;
@@ -61,6 +71,53 @@ public class CompleteWidgetActivity extends Activity {
             }
         });
         mapWidget.onCreate(savedInstanceState);
+                            /*ADDED*/
+        menuBtn = findViewById(R.id.menu_button);
+        circleBtn = findViewById(R.id.circle_button);
+        squereBtn = findViewById(R.id.squere_button);
+        options = findViewById(R.id.options);
+        pointerCircle = findViewById(R.id.pointer1);
+        pointerSquere = findViewById(R.id.pointer2);
+
+        menuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(options.getVisibility() == options.INVISIBLE) {
+                    options.setVisibility(options.VISIBLE);
+                }
+                else {
+                    options.setVisibility(options.INVISIBLE);
+                }
+            }
+        });
+        circleBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(pointerCircle.getVisibility() == pointerCircle.INVISIBLE) {
+                    pointerCircle.setVisibility(pointerCircle.VISIBLE);
+                    pointerSquere.setVisibility(pointerSquere.INVISIBLE);
+                }
+                else {
+                    pointerCircle.setVisibility(pointerCircle.INVISIBLE);
+                }
+                options.setVisibility(options.INVISIBLE);
+            }
+        });
+        squereBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(pointerSquere.getVisibility() == pointerSquere.INVISIBLE) {
+                    pointerSquere.setVisibility(pointerSquere.VISIBLE);
+                    pointerCircle.setVisibility(pointerCircle.INVISIBLE);
+                }
+                else {
+                    pointerSquere.setVisibility(pointerSquere.INVISIBLE);
+                }
+                options.setVisibility(options.INVISIBLE);
+            }
+        });
+
+
 
         parentView = (ViewGroup) findViewById(R.id.root_view);
 
