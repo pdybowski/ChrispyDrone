@@ -25,7 +25,7 @@ import dji.ux.widget.controls.CameraControlsWidget;
 /** Activity that shows all the UI elements together */
 public class CompleteWidgetActivity extends Activity {
 
-    private MapWidget mapWidget;
+    /*private MapWidget mapWidget;*/
     private ViewGroup parentView;
     private FPVWidget fpvWidget;
     private FPVWidget secondaryFPVWidget;
@@ -36,6 +36,7 @@ public class CompleteWidgetActivity extends Activity {
     private Button menuBtn;
     private Button circleBtn;
     private Button squereBtn;
+    private Button cordBtn;
     private LinearLayout options;
     private LinearLayout pointerCircle;
     private LinearLayout pointerSquere;
@@ -58,7 +59,7 @@ public class CompleteWidgetActivity extends Activity {
         deviceHeight = displayMetrics.heightPixels;
         deviceWidth = displayMetrics.widthPixels;
 
-        mapWidget = (MapWidget) findViewById(R.id.map_widget);
+        /*mapWidget = (MapWidget) findViewById(R.id.map_widget);
         mapWidget.initAMap(new MapWidget.OnMapReadyListener() {
             @Override
             public void onMapReady(@NonNull DJIMap map) {
@@ -70,12 +71,13 @@ public class CompleteWidgetActivity extends Activity {
                 });
             }
         });
-        mapWidget.onCreate(savedInstanceState);
+        mapWidget.onCreate(savedInstanceState);*/
                             /*ADDED*/
         menuBtn = findViewById(R.id.menu_button);
         circleBtn = findViewById(R.id.circle_button);
         squereBtn = findViewById(R.id.squere_button);
         options = findViewById(R.id.options);
+        cordBtn = findViewById(R.id.cord_button);
         pointerCircle = findViewById(R.id.pointer1);
         pointerSquere = findViewById(R.id.pointer2);
 
@@ -116,18 +118,26 @@ public class CompleteWidgetActivity extends Activity {
                 options.setVisibility(options.INVISIBLE);
             }
         });
-
+        cordBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if(cordBtn.getText() == "START")
+                    cordBtn.setText("STOP");
+                else
+                    cordBtn.setText("START");
+            }
+        });
 
 
         parentView = (ViewGroup) findViewById(R.id.root_view);
 
-        fpvWidget = findViewById(R.id.fpv_widget);
+        /*fpvWidget = findViewById(R.id.fpv_widget);
         fpvWidget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onViewClick(fpvWidget);
             }
-        });
+        });*/
         secondaryVideoView = (FrameLayout) findViewById(R.id.secondary_video_view);
         secondaryFPVWidget = findViewById(R.id.secondary_fpv_widget);
         secondaryFPVWidget.setOnClickListener(new View.OnClickListener() {
@@ -139,7 +149,7 @@ public class CompleteWidgetActivity extends Activity {
         updateSecondaryVideoVisibility();
     }
 
-    private void onViewClick(View view) {
+    /*private void onViewClick(View view) {
         if (view == fpvWidget && !isMapMini) {
             resizeFPVWidget(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT, 0, 0);
             reorderCameraCapturePanel();
@@ -154,7 +164,7 @@ public class CompleteWidgetActivity extends Activity {
             mapWidget.startAnimation(mapViewAnimation);
             isMapMini = false;
         }
-    }
+    }*/
 
     private void resizeFPVWidget(int width, int height, int margin, int fpvInsertPosition) {
         RelativeLayout.LayoutParams fpvParams = (RelativeLayout.LayoutParams) fpvWidget.getLayoutParams();
@@ -224,10 +234,10 @@ public class CompleteWidgetActivity extends Activity {
                                             | View.SYSTEM_UI_FLAG_FULLSCREEN
                                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
-        mapWidget.onResume();
+        //mapWidget.onResume();
     }
 
-    @Override
+    /*@Override
     protected void onPause() {
         mapWidget.onPause();
         super.onPause();
@@ -249,7 +259,7 @@ public class CompleteWidgetActivity extends Activity {
     public void onLowMemory() {
         super.onLowMemory();
         mapWidget.onLowMemory();
-    }
+    }*/
 
     private class ResizeAnimation extends Animation {
 

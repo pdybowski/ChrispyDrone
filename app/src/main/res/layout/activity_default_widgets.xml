@@ -21,11 +21,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <!--<RelativeLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="40dp"
-        android:layout_toRightOf="@+id/TakeOffReturnPanel"
         android:layout_toLeftOf="@+id/CameraCapturePanel"
         android:layout_below="@+id/camera"
         tools:ignore="RtlHardcoded">
@@ -35,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"/>
 
-    </RelativeLayout>-->
+    </RelativeLayout>
 
     <FrameLayout
         android:layout_width="150dp"
@@ -44,7 +43,6 @@
         android:layout_marginLeft="12dp"
         android:layout_marginBottom="4dp"
         android:layout_alignParentLeft="true"
-        android:layout_above="@+id/TakeOffReturnPanel"
         android:background="@color/black">
         <dji.ux.widget.FPVWidget
             android:id="@+id/secondary_fpv_widget"
@@ -54,23 +52,7 @@
             custom:videoSource="secondary"/>
     </FrameLayout>
 
-    <!--<dji.ux.workflow.CompassCalibratingWorkFlow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-    <dji.ux.workflow.CameraSensorCleaningWorkFlow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>-->
-
-    <!--<dji.ux.widget.RemainingFlightTimeWidget
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="18dp"
-        android:layout_width="match_parent"
-        android:id="@+id/remaining_flight_time"
-        android:background="@color/transparent"
-        android:layout_height="20dp"/>-->
-
-    <!--LAYOUT ON THE RIGHT-->
+    <!--dont need-->
     <LinearLayout
         android:id="@+id/camera"
         android:layout_alignParentRight="true"
@@ -80,35 +62,8 @@
         android:layout_marginTop="0dp"
         android:background="@color/dark_gray"
         android:orientation="horizontal">
-
-        <!--   <dji.ux.widget.config.CameraConfigISOAndEIWidget
-              android:layout_width="50dp"
-              android:layout_height="25dp"/>
-
-         <dji.ux.widget.config.CameraConfigShutterWidget
-              android:layout_width="50dp"
-              android:layout_height="25dp"/>
-
-          <dji.ux.widget.config.CameraConfigApertureWidget
-              android:layout_width="50dp"
-              android:layout_height="25dp"/>
-
-          <dji.ux.widget.config.CameraConfigEVWidget
-              android:layout_width="50dp"
-              android:layout_height="25dp"/>
-
-          <dji.ux.widget.config.CameraConfigWBWidget
-              android:layout_width="60dp"
-              android:layout_height="25dp"/>
-
-          <dji.ux.widget.config.CameraConfigStorageWidget
-              android:layout_width="108dp"
-              android:layout_height="25dp"/>
-          <dji.ux.widget.config.CameraConfigSSDWidget
-              android:layout_width="125dp"
-              android:layout_height="25dp"/>-->
     </LinearLayout>
-
+    <!--dont need-->
     <LinearLayout
         android:id="@+id/camera2"
         android:layout_width="wrap_content"
@@ -118,88 +73,130 @@
         android:layout_toLeftOf="@+id/CameraCapturePanel"
         android:background="@color/transparent"
         android:orientation="horizontal">
-
-        <!--<dji.ux.widget.SpeakerWidget
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-
-        <dji.ux.widget.AutoExposureLockWidget
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-
-        <dji.ux.widget.FocusModeWidget
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-
-        <dji.ux.widget.FocusExposureSwitchWidget
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-
-        <dji.ux.widget.BeaconWidget
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-
-        <dji.ux.widget.SpotlightWidget
-            android:layout_width="35dp"
-            android:layout_height="35dp" />
-
-        <dji.ux.widget.AccessLockerWidget
-            android:layout_width="35dp"
-            android:layout_height="35dp" />-->
     </LinearLayout>
 
-    <!--dont need-->
-    <!--<dji.ux.widget.ManualFocusWidget
-            android:layout_alignTop="@+id/camera2"
-            android:layout_toLeftOf="@+id/camera2"
-            android:layout_width="50dp"
-            android:layout_height="210dp"
-            android:background="@color/transparent"
-            tools:ignore="RtlHardcoded"/>-->
-
-    <dji.ux.widget.MapWidget
-        android:id="@+id/map_widget"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginBottom="8dp"
+    <!--menu in the middle-right of the interface-->
+    <dji.ux.widget.controls.PictureVideoSwitch
+        android:id="@+id/ChangeCameraCapturePanel"
+        android:layout_width="50dp"
+        android:layout_height="45dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:visibility="invisible"/>
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/dark_gray"/>
+    <dji.ux.widget.controls.CameraCaptureWidget
+        android:id="@+id/CameraCapturePanel"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/ChangeCameraCapturePanel"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/dark_gray"/>
+    <Button
+        android:id="@+id/menu_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/CameraCapturePanel"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/btn_menu"
+        android:textColor="@color/white"
+        android:background="@color/dark_gray"/>
+    <Button
+        android:id="@+id/cord_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/menu_button"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/btn_cord"
+        android:textColor="@color/white"
+        android:background="@color/dark_gray"/>
 
-        <dji.ux.widget.controls.PictureVideoSwitch
-            android:id="@+id/ChangeCameraCapturePanel"
-            android:layout_width="50dp"
-            android:layout_height="70dp"
-            android:layout_below="@id/camera"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="2dp"
-            android:background="@color/black_transparent"/>
-
-        <dji.ux.widget.controls.CameraCaptureWidget
-            android:id="@+id/CameraCapturePanel"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_below="@id/ChangeCameraCapturePanel"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:background="@color/black_transparent"/>
-
+    <!--OVERLAY MENU-->
+    <LinearLayout
+        android:id="@+id/options"
+        android:layout_width="108dp"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@+id/menu_button"
+        android:layout_marginTop="183dp"
+        android:visibility="invisible">
         <Button
-            android:id="@+id/menu_button"
+            android:id="@+id/circle_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_below="@id/CameraCapturePanel"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="2dp"
-            android:text="@string/btn_btn"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:text="@string/circle_btn"
             android:textColor="@color/white"
-            android:background="@color/black_transparent"/>
+            android:background="@color/dark_gray"/>
+        <Button
+            android:id="@+id/squere_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toLeftOf="@+id/circle_button"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:text="@string/squere_btn"
+            android:textColor="@color/white"
+            android:background="@color/dark_gray"/>
+    </LinearLayout>
 
-    <!-- Everything below this line will appear on top of the full-screen map widget -->
+    <!--circle-->
+    <LinearLayout
+        android:id="@+id/pointer1"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:background="@drawable/border_circle"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:visibility="invisible">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="+"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!--square-->
+    <LinearLayout
+        android:id="@+id/pointer2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:gravity="center"
+        android:background="@drawable/border_squere"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:visibility="invisible">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="+"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+    <!--compass in the left-down corner-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dashboard_widget"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal"
+        android:padding="0dp">
+        <dji.ux.widget.dashboard.CompassWidget
+            android:id="@+id/Compass"
+            android:layout_width="91dp"
+            android:layout_height="91dp"
+            tools:ignore="RtlHardcoded"/>
+    </LinearLayout>
 
     <!-- Widgets in top status bar -->
     <LinearLayout
@@ -211,55 +208,13 @@
         <dji.ux.widget.PreFlightStatusWidget
             android:layout_width="180dp"
             android:layout_height="25dp"/>
-
         <dji.ux.widget.FlightModeWidget
             android:layout_width="103dp"
             android:layout_height="22dp"
             android:layout_marginLeft="400dp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/dashboard_widget"
-        android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:padding="0dp">
-        <dji.ux.widget.dashboard.CompassWidget
-            android:id="@+id/Compass"
-            android:layout_width="91dp"
-            android:layout_height="91dp"
-            android:layout_marginRight="12dp"
-            tools:ignore="RtlHardcoded"/>
-    </LinearLayout>
-
-    <!--Take off and return home buttons on left -->
-    <LinearLayout
-        android:id="@+id/TakeOffReturnPanel"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="4dp"
-        android:layout_above="@+id/dashboard_widget"
-        android:orientation="vertical">
-        <!--<dji.ux.widget.TakeOffWidget
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="5dp" />
-        <dji.ux.widget.ReturnHomeWidget
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"/>-->
-    </LinearLayout>
-
     <!-- Panels -->
-    <!--<dji.ux.widget.HistogramWidget
-        android:layout_toRightOf="@id/TakeOffReturnPanel"
-        android:layout_centerVertical="true"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
-        tools:ignore="RtlHardcoded"/>-->
     <dji.ux.panel.CameraSettingExposurePanel
         android:layout_width="180dp"
         android:layout_below="@id/camera"
@@ -315,71 +270,4 @@
         android:layout_below="@id/signal"
         android:visibility="gone"
         android:gravity="center" />
-    <!--android:layout_alignLeft="@+id/camera2"-->
-
-    <!--OVERLAY MENU-->
-    <LinearLayout
-        android:id="@+id/options"
-        android:layout_width="108dp"
-        android:layout_height="50dp"
-        android:layout_toLeftOf="@+id/menu_button"
-        android:layout_marginTop="203dp"
-        android:visibility="invisible">
-        <Button
-            android:id="@+id/circle_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:text="@string/circle_btn"
-            android:textColor="@color/white"
-            android:background="@color/black_transparent"/>
-        <Button
-            android:id="@+id/squere_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_toLeftOf="@+id/circle_button"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:text="@string/squere_btn"
-            android:textColor="@color/white"
-            android:background="@color/black_transparent"/>
-    </LinearLayout>
-
-    <!--circle-->
-    <LinearLayout
-        android:id="@+id/pointer1"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:gravity="center"
-        android:background="@drawable/border_circle"
-        android:layout_centerInParent="true"
-        android:orientation="vertical"
-        android:visibility="invisible">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="+"
-            android:textSize="12sp" />
-    </LinearLayout>
-
-    <!--squere-->
-    <LinearLayout
-        android:id="@+id/pointer2"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:gravity="center"
-        android:background="@drawable/border_squere"
-        android:layout_centerInParent="true"
-        android:orientation="vertical"
-        android:visibility="invisible">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="+"
-            android:textSize="12sp" />
-    </LinearLayout>
 </RelativeLayout>

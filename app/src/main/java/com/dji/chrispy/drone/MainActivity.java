@@ -116,7 +116,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Popu
         isAppStarted = true;
         findViewById(R.id.complete_ui_widgets).setOnClickListener(this);
         //findViewById(R.id.bt_customized_ui_widgets).setOnClickListener(this);
-        findViewById(R.id.bt_map_widget).setOnClickListener(this);
+        //findViewById(R.id.bt_map_widget).setOnClickListener(this);
         TextView versionText = (TextView) findViewById(R.id.version);
         versionText.setText(getResources().getString(R.string.sdk_version, DJISDKManager.getInstance().getSDKVersion()));
         bridgeModeEditText = (EditText) findViewById(R.id.edittext_bridge_ip);

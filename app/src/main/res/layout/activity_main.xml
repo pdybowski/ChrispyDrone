@@ -31,7 +31,7 @@
         android:padding="14dp"
         android:textColor="@color/background_blue"
         android:text="Demo on Customized UI Widgets"/>-->
-    <Button
+    <!--<Button
         android:id="@+id/bt_map_widget"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:layout_margin="10dp"
         android:padding="14dp"
         android:textColor="@color/background_blue"
-        android:text="Map Widget Demo"/>
+        android:text="Map Widget Demo"/>-->
 
     <TableRow
         android:layout_weight="1"
