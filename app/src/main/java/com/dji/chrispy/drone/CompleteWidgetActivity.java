@@ -13,8 +13,12 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.dji.mapkit.core.maps.DJIMap;
 import com.dji.mapkit.core.models.DJILatLng;
+
+import dji.common.flightcontroller.LocationCoordinate3D;
 import dji.keysdk.CameraKey;
 import dji.keysdk.KeyManager;
 import dji.ux.widget.FPVOverlayWidget;
@@ -30,14 +34,16 @@ public class CompleteWidgetActivity extends Activity {
     private FPVWidget fpvWidget;
     private FPVWidget secondaryFPVWidget;
     private FrameLayout secondaryVideoView;
+    private LocationCoordinate3D altitude;
     private boolean isMapMini = true;
-
 
     private Button menuBtn;
     private Button circleBtn;
     private Button squereBtn;
     private Button cordBtn;
+    private Button altitudeBtn;
     private LinearLayout options;
+    private LinearLayout options2;
     private LinearLayout pointerCircle;
     private LinearLayout pointerSquere;
     private int height;
@@ -45,6 +51,8 @@ public class CompleteWidgetActivity extends Activity {
     private int margin;
     private int deviceWidth;
     private int deviceHeight;
+    private float dAltitudePoint;
+    private TextView altitudeValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,18 +85,23 @@ public class CompleteWidgetActivity extends Activity {
         circleBtn = findViewById(R.id.circle_button);
         squereBtn = findViewById(R.id.squere_button);
         options = findViewById(R.id.options);
+        options2 = findViewById(R.id.options2);
         cordBtn = findViewById(R.id.cord_button);
         pointerCircle = findViewById(R.id.pointer1);
         pointerSquere = findViewById(R.id.pointer2);
+        altitudeBtn = findViewById(R.id.altitude_button);
+        altitudeValue = findViewById(R.id.altitudeValue);
 
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(options.getVisibility() == options.INVISIBLE) {
+                if(options.getVisibility() == options.INVISIBLE && options2.getVisibility() == options2.INVISIBLE) {
                     options.setVisibility(options.VISIBLE);
+                    options2.setVisibility(options2.VISIBLE);
                 }
                 else {
                     options.setVisibility(options.INVISIBLE);
+                    options2.setVisibility(options2.INVISIBLE);
                 }
             }
         });
@@ -102,6 +115,7 @@ public class CompleteWidgetActivity extends Activity {
                 else {
                     pointerCircle.setVisibility(pointerCircle.INVISIBLE);
                 }
+                options2.setVisibility(options2.INVISIBLE);
                 options.setVisibility(options.INVISIBLE);
             }
         });
@@ -116,6 +130,7 @@ public class CompleteWidgetActivity extends Activity {
                     pointerSquere.setVisibility(pointerSquere.INVISIBLE);
                 }
                 options.setVisibility(options.INVISIBLE);
+                options2.setVisibility(options.INVISIBLE);
             }
         });
         cordBtn.setOnClickListener(new View.OnClickListener(){
@@ -128,6 +143,23 @@ public class CompleteWidgetActivity extends Activity {
             }
         });
 
+        /*ADDED*/
+        altitudeBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                if(altitudeBtn.getText() == "MEAS") {
+                    altitudeBtn.setText("WORK");
+                    MyProperties.getInstance().altitudePoint1 = 20;     //= altitude.getAltitude();
+                    altitudeValue.setText("+");
+                }
+                else{
+                    altitudeBtn.setText("MEAS");
+                    MyProperties.getInstance().altitudePoint2 = 46;     //= altitude.getAltitude();
+                    dAltitudePoint = (MyProperties.getInstance().altitudePoint2 - MyProperties.getInstance().altitudePoint1);
+                    altitudeValue.setText("Hdistance: " + dAltitudePoint);
+                }
+            }
+        });
 
         parentView = (ViewGroup) findViewById(R.id.root_view);
 
@@ -138,15 +170,15 @@ public class CompleteWidgetActivity extends Activity {
                 onViewClick(fpvWidget);
             }
         });*/
-        secondaryVideoView = (FrameLayout) findViewById(R.id.secondary_video_view);
+   /*     secondaryVideoView = (FrameLayout) findViewById(R.id.secondary_video_view);
         secondaryFPVWidget = findViewById(R.id.secondary_fpv_widget);
-        secondaryFPVWidget.setOnClickListener(new View.OnClickListener() {
+       secondaryFPVWidget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 swapVideoSource();
             }
         });
-        updateSecondaryVideoVisibility();
+        updateSecondaryVideoVisibility();*/
     }
 
     /*private void onViewClick(View view) {

@@ -36,7 +36,7 @@
 
     </RelativeLayout>
 
-    <FrameLayout
+   <!-- <FrameLayout
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:id="@+id/secondary_video_view"
@@ -50,7 +50,7 @@
             android:layout_height="match_parent"
             custom:sourceCameraNameVisibility="true"
             custom:videoSource="secondary"/>
-    </FrameLayout>
+    </FrameLayout>-->
 
     <!--dont need-->
     <LinearLayout
@@ -122,30 +122,37 @@
         android:layout_width="108dp"
         android:layout_height="50dp"
         android:layout_toLeftOf="@+id/menu_button"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="183dp"
         android:visibility="invisible">
-        <Button
-            android:id="@+id/circle_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:text="@string/circle_btn"
-            android:textColor="@color/white"
-            android:background="@color/dark_gray"/>
         <Button
             android:id="@+id/squere_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_toLeftOf="@+id/circle_button"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
             android:text="@string/squere_btn"
             android:textColor="@color/white"
             android:background="@color/dark_gray"/>
     </LinearLayout>
-
+    <LinearLayout
+    android:id="@+id/options2"
+    android:layout_width="108dp"
+    android:layout_height="50dp"
+    android:layout_toLeftOf="@+id/CameraCapturePanel"
+    android:layout_alignParentRight="true"
+    android:layout_marginTop="131dp"
+    android:visibility="invisible">
+    <Button
+        android:id="@+id/circle_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginRight="2dp"
+        android:text="@string/circle_btn"
+        android:textColor="@color/white"
+        android:background="@color/dark_gray"/>
+    </LinearLayout>
     <!--circle-->
     <LinearLayout
         android:id="@+id/pointer1"
@@ -182,6 +189,26 @@
             android:textSize="12dp" />
     </LinearLayout>
 
+    <!--Button to start and take altitude measurment-->
+    <Button
+        android:id="@+id/altitude_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/btn_altitude"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:background="@color/dark_gray"/>
+
+    <TextView android:id="@+id/altitudeValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="100dp"
+        android:text=""
+        android:textColor="@color/white"
+        android:background="@color/dark_gray"/>
+
     <!--compass in the left-down corner-->
     <LinearLayout
         android:layout_width="match_parent"
@@ -189,6 +216,7 @@
         android:id="@+id/dashboard_widget"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
+        android:layout_marginTop="100dp"
         android:orientation="horizontal"
         android:padding="0dp">
         <dji.ux.widget.dashboard.CompassWidget
