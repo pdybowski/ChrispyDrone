@@ -36,6 +36,7 @@ public class CompleteWidgetActivity extends Activity {
     private FrameLayout secondaryVideoView;
     private LocationCoordinate3D altitude;
     private boolean isMapMini = true;
+    private boolean isMeasHeight = true;
 
     private Button menuBtn;
     private Button circleBtn;
@@ -133,6 +134,7 @@ public class CompleteWidgetActivity extends Activity {
                 options2.setVisibility(options.INVISIBLE);
             }
         });
+        /*KRYSTIAN  DO UZUPELNIENIA*/
         cordBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -142,17 +144,17 @@ public class CompleteWidgetActivity extends Activity {
                     cordBtn.setText("START");
             }
         });
-
         /*ADDED*/
         altitudeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                if(altitudeBtn.getText() == "MEAS") {
+                if(isMeasHeight) {
+                    isMeasHeight = false;
                     altitudeBtn.setText("WORK");
                     MyProperties.getInstance().altitudePoint1 = 20;     //= altitude.getAltitude();
-                    altitudeValue.setText("+");
                 }
                 else{
+                    isMeasHeight = true;
                     altitudeBtn.setText("MEAS");
                     MyProperties.getInstance().altitudePoint2 = 46;     //= altitude.getAltitude();
                     dAltitudePoint = (MyProperties.getInstance().altitudePoint2 - MyProperties.getInstance().altitudePoint1);
