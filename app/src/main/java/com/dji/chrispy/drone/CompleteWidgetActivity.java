@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -24,6 +25,8 @@ import android.widget.Toast;
 import com.dji.mapkit.core.maps.DJIMap;
 import com.dji.mapkit.core.models.DJILatLng;
 
+import java.util.ArrayList;
+
 import dji.common.flightcontroller.LocationCoordinate3D;
 import dji.keysdk.CameraKey;
 import dji.keysdk.KeyManager;
@@ -42,8 +45,9 @@ public class CompleteWidgetActivity extends Activity {
     private FPVWidget secondaryFPVWidget;
     private FrameLayout secondaryVideoView;
     private LocationCoordinate3D altitude;
+
     private boolean isMapMini = true;
-    private boolean isMeasHeight = true;
+    private boolean measure = false;
 
     private Button menuBtn;
     private Button circleBtn;
@@ -53,15 +57,19 @@ public class CompleteWidgetActivity extends Activity {
     private Button widthBtn;
     private Button distanceBtn;
     private Button measureBtn;
+    private Button colorBtn;
     private LinearLayout options;
     private LinearLayout options2;
+    private LinearLayout options3;
     private LinearLayout pointerCircle;
     private LinearLayout pointerSquere;
+
     private int height;
     private int width;
     private int margin;
     private int deviceWidth;
     private int deviceHeight;
+    private int overlaycolorID;
     private float dAltitudePoint;
     private TextView resultOfMeausurementTextView;
     private String typeOfMeasure;
@@ -69,7 +77,7 @@ public class CompleteWidgetActivity extends Activity {
     private Location dronelocationStart = new Location("Start");
     private Location dronelocationEnd = new Location("Now");
 
-    private boolean measure = false;
+    private ArrayList<Integer> overlaycolors = new ArrayList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +120,23 @@ public class CompleteWidgetActivity extends Activity {
         distanceBtn = findViewById(R.id.distance_button);
         measureBtn = findViewById(R.id.measure_button);
 
+        //<!-- Added by Daniel -->
+        overlaycolorID=1;
+        options3 =findViewById(R.id.options3);
+        colorBtn=findViewById(R.id.color_button);
+        overlaycolors.add((Integer)getResources().getColor(R.color.overlay_white));
+        overlaycolors.add((Integer)getResources().getColor(R.color.overlay_black));
+        overlaycolors.add((Integer)getResources().getColor(R.color.overlay_red));
+        overlaycolors.add((Integer)getResources().getColor(R.color.overlay_green));
+        overlaycolors.add((Integer)getResources().getColor(R.color.overlay_blue));
+        overlaycolors.add((Integer)getResources().getColor(R.color.overlay_white_half_transparent));
+        overlaycolors.add((Integer)getResources().getColor(R.color.overlay_black_half_transparent));
+        overlaycolors.add((Integer)getResources().getColor(R.color.overlay_red_half_transparent));
+        overlaycolors.add((Integer)getResources().getColor(R.color.overlay_green_half_transparent));
+        overlaycolors.add((Integer)getResources().getColor(R.color.overlay_blue_half_transparent));
+        //<!-- Added by Daniel -->
+
+
 
         menuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,10 +144,12 @@ public class CompleteWidgetActivity extends Activity {
                 if(options.getVisibility() == options.INVISIBLE && options2.getVisibility() == options2.INVISIBLE) {
                     options.setVisibility(options.VISIBLE);
                     options2.setVisibility(options2.VISIBLE);
+                    options3.setVisibility(options3.VISIBLE);   //<!-- Added by Daniel -->
                 }
                 else {
                     options.setVisibility(options.INVISIBLE);
                     options2.setVisibility(options2.INVISIBLE);
+                    options3.setVisibility(options3.INVISIBLE); //<!-- Added by Daniel -->
                 }
             }
         });
@@ -138,6 +165,7 @@ public class CompleteWidgetActivity extends Activity {
                 }
                 options2.setVisibility(options2.INVISIBLE);
                 options.setVisibility(options.INVISIBLE);
+                options3.setVisibility(options3.INVISIBLE); //<!-- Added by Daniel -->
             }
         });
         squereBtn.setOnClickListener(new View.OnClickListener() {
@@ -152,10 +180,35 @@ public class CompleteWidgetActivity extends Activity {
                 }
                 options.setVisibility(options.INVISIBLE);
                 options2.setVisibility(options.INVISIBLE);
+                options3.setVisibility(options3.INVISIBLE); //<!-- Added by Daniel -->
             }
         });
 
-        /* Added */
+
+        //<!-- Added by Daniel -->
+        colorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                GradientDrawable bckcolor1 = (GradientDrawable)pointerCircle.getBackground();
+                GradientDrawable bckcolor2 = (GradientDrawable)pointerSquere.getBackground();
+                bckcolor1.setStroke(10,(Integer) overlaycolors.get(overlaycolorID));
+                bckcolor2.setStroke(10,(Integer) overlaycolors.get(overlaycolorID));
+
+                options.setVisibility(options.INVISIBLE);
+                options2.setVisibility(options.INVISIBLE);
+                options3.setVisibility(options3.INVISIBLE);
+
+                colorBtn.setTextColor((Integer) overlaycolors.get(overlaycolorID));
+                overlaycolorID+=1;
+                overlaycolorID%=10;
+                colorBtn.setBackgroundColor((Integer) overlaycolors.get(overlaycolorID));
+            }
+        });
+        //<!-- Added by Daniel -->
+
+
+        /* Added by Krystian */
         typeOfMeasureBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -173,7 +226,7 @@ public class CompleteWidgetActivity extends Activity {
             }
         });
 
-        /* Added */
+        /* Added by Krystian */
         altitudeBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -192,7 +245,7 @@ public class CompleteWidgetActivity extends Activity {
             }
         });
 
-        /* Added */
+        /* Added by Krystian */
         widthBtn.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
             @Override
@@ -212,7 +265,7 @@ public class CompleteWidgetActivity extends Activity {
         }
         });
 
-        /* Added */
+        /* Added by Krystian */
         distanceBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -230,7 +283,7 @@ public class CompleteWidgetActivity extends Activity {
             }
         });
 
-        /* Added */
+        /* Added by Krystian */
         measureBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
@@ -337,7 +390,7 @@ public class CompleteWidgetActivity extends Activity {
         }
     }*/
 
-    /* Added */
+    /* Added by Krystian */
     private void Localization(Location location)
     {
         location.setLatitude(DataOsdGetPushCommon.getInstance().getLatitude());
@@ -345,13 +398,13 @@ public class CompleteWidgetActivity extends Activity {
         location.setAltitude(DataOsdGetPushCommon.getInstance().getHeight()/10.0);
     }
 
-    /* Added */
+    /* Added by Krystian */
     private double GetHeightDifference(double height1, double height2)
     {
         return Math.abs(height1 - height2);
     }
 
-    /* Added */
+    /* Added by Krystian */
     private double GetDistance2D(Location loc1, Location loc2) {
         double R = 6371; // Radius of the earth in km
         double dLat = deg2rad(loc2.getLatitude()-loc1.getLatitude());  // deg2rad below
@@ -365,13 +418,13 @@ public class CompleteWidgetActivity extends Activity {
         return d;
     }
 
-    /* Added */
+    /* Added by Krystian */
     // zamiana stopni na radiany
     private double  deg2rad(double deg) {
         return deg * (Math.PI/180);
     }
 
-    /* Added */
+    /* Added by Krystian */
     private double GetTotalDistance3D(double height, double length)
     {
         return Math.sqrt(Math.pow(height, 2)+Math.pow(length, 2));
