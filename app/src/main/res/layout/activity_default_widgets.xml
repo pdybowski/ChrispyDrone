@@ -104,17 +104,6 @@
         android:text="@string/btn_menu"
         android:textColor="@color/white"
         android:background="@color/dark_gray"/>
-    <Button
-        android:id="@+id/cord_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/menu_button"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
-        android:text="@string/btn_cord"
-        android:textColor="@color/white"
-        android:background="@color/dark_gray"/>
 
     <!--OVERLAY MENU-->
     <LinearLayout
@@ -135,6 +124,7 @@
             android:textColor="@color/white"
             android:background="@color/dark_gray"/>
     </LinearLayout>
+
     <LinearLayout
     android:id="@+id/options2"
     android:layout_width="108dp"
@@ -143,6 +133,7 @@
     android:layout_alignParentRight="true"
     android:layout_marginTop="131dp"
     android:visibility="invisible">
+
     <Button
         android:id="@+id/circle_button"
         android:layout_width="50dp"
@@ -153,6 +144,29 @@
         android:textColor="@color/white"
         android:background="@color/dark_gray"/>
     </LinearLayout>
+
+    <!-- Added by Daniel -->
+    <LinearLayout
+        android:id="@+id/options3"
+        android:layout_width="108dp"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@+id/CameraCapturePanel"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="235dp"
+        android:visibility="invisible">
+        <Button
+            android:id="@+id/color_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:text="Color"
+            android:textColor="@color/white"
+            android:background="@color/dark_gray"/>
+    </LinearLayout>
+    <!-- Added by Daniel -->
+
+
     <!--circle-->
     <LinearLayout
         android:id="@+id/pointer1"
@@ -164,6 +178,7 @@
         android:orientation="vertical"
         android:visibility="invisible">
         <TextView
+            android:id="@+id/cross1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -182,6 +197,7 @@
         android:orientation="vertical"
         android:visibility="invisible">
         <TextView
+            android:id="@+id/cross2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -189,18 +205,76 @@
             android:textSize="12dp" />
     </LinearLayout>
 
-    <!--Button to start and take altitude measurment-->
+    <!-- Added -->
+    <!--Buttons to start and take height,width,distance measurment-->
     <Button
-        android:id="@+id/altitude_button"
+        android:id="@+id/type_measure_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="100dp"
+        android:layout_below="@id/menu_button"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/btn_type_measure"
+        android:textColor="@color/white"
+        android:background="@color/dark_gray" />
+
+
+    <Button
+        android:id="@+id/altitude_button"
+        android:layout_below="@id/CameraCapturePanel"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="55dp"
+        android:layout_alignParentRight="true"
         android:text="@string/btn_altitude"
         android:layout_centerInParent="true"
         android:textColor="@color/white"
-        android:background="@color/dark_gray"/>
+        android:background="@color/dark_gray"
+        android:visibility="invisible"/>
 
-    <TextView android:id="@+id/altitudeValue"
+    <Button
+        android:id="@+id/width_button"
+        android:layout_below="@id/menu_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="55dp"
+        android:layout_alignParentRight="true"
+        android:text="@string/btn_width"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:background="@color/dark_gray"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/distance_button"
+        android:layout_below="@id/type_measure_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="55dp"
+        android:layout_alignParentRight="true"
+        android:text="@string/btn_distance"
+        android:layout_centerInParent="true"
+        android:textColor="@color/white"
+        android:background="@color/dark_gray"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/measure_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/type_measure_button"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/btn_measure"
+        android:textColor="@color/white"
+        android:background="@color/dark_gray" />
+
+    <TextView android:id="@+id/resultOfMeausurementTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -208,6 +282,9 @@
         android:text=""
         android:textColor="@color/white"
         android:background="@color/dark_gray"/>
+
+
+    <!-- -->>
 
     <!--compass in the left-down corner-->
     <LinearLayout

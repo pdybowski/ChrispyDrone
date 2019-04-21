@@ -5,4 +5,17 @@
     <color name="background_blue">#242d34</color>
     <color name="dark_gray">#80000000</color>
     <color name="medium_blue">#298080</color>
+    <!-- Added by Daniel -->
+    <color name="overlay_blue">#0000ff</color>
+    <color name="overlay_red">#ff0000</color>
+    <color name="overlay_green">#00ff00</color>
+    <color name="overlay_white">#ffffff</color>
+    <color name="overlay_black">#000000</color>
+    <color name="overlay_blue_half_transparent">#7f0000ff</color>
+    <color name="overlay_red_half_transparent">#7fff0000</color>
+    <color name="overlay_green_half_transparent">#7f00ff00</color>
+    <color name="overlay_white_half_transparent">#7fffffff</color>
+    <color name="overlay_black_half_transparent">#7f000000</color>
+    <!-- Added by Daniel -->
+
 </resources>

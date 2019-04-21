@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" type="JAVA_MODULE" version="4">
+<module external.linked.project.id=":app" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="android-gradle" name="Android-Gradle">
       <configuration>
@@ -68,13 +68,6 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/rs" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/assets" type="java-test-resource" />
@@ -82,33 +75,30 @@
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/androidTest/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build/generated/not_namespaced_r_class_sources" />
       <excludeFolder url="file://$MODULE_DIR$/build/generated/source/r" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotation_processor_list" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/apk_list" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/build-info" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/builds" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/check-manifest" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/compatible_screen_manifest" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-classes" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-runtime-classes" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-verifier" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-apk" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant-run-resources" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant_run_merged_manifests" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/instant_run_split_apk_resources" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javac" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jniLibs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/legacy_multidex_aapt_derived_proguard_rules" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifest-checker" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_assets" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/merged_manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/processed_res" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/reload-dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/split-apk" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/split_list" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
@@ -124,7 +114,6 @@
     <orderEntry type="library" name="Gradle: com.lmax:disruptor:3.3.9@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7:27.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-vector-drawable:27.0.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:C.\Users\pdybo\.gradle\caches\transforms-1\files-1.1\HERE-sdk-3.8.0.aar\a2b25b572b3ab38bfa4fc858de5bb603:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:support-core-ui:27.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-location:16.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: android.arch.lifecycle:runtime:1.0.0@aar" level="project" />
@@ -170,6 +159,7 @@
     <orderEntry type="library" name="Gradle: com.android.support:support-annotations:27.0.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.amap.api:3dmap:5.5.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-maps:16.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:C.\Users\Asus-K73S\.gradle\caches\transforms-1\files-1.1\HERE-sdk-3.8.0.aar\cfbfabd1fe611c9a2d279eab1abefbe4:unspecified@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.15.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.mapbox.mapboxsdk:mapbox-sdk-services:4.0.0@jar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks:16.0.1@aar" level="project" />

@@ -45,8 +45,11 @@
     <string name="btn_menu">SHAPE</string>
     <string name="circle_btn">O</string>
     <string name="squere_btn">[]</string>
-    <string name="btn_cord">START</string>
-    <string name="btn_altitude">MEAS</string>
+    <string name="btn_type_measure">Measure</string>
+    <string name="btn_altitude">Height</string>
+    <string name="btn_width">Width</string>
+    <string name="btn_distance">Distance</string>
+    <string name="btn_measure">Start measure</string>
     <string-array name="iconArray">
         <item>Aircraft</item>
         <item>Home</item>

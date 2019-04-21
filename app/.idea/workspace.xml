@@ -6,19 +6,7 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d69e22f0-1298-4544-b7cd-59efa534c8ff" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gradle/4.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/4.6/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dji/chrispy/drone/CompleteWidgetActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dji/chrispy/drone/CompleteWidgetActivity.java" afterDir="false" />
-    </list>
+    <list default="true" id="d69e22f0-1298-4544-b7cd-59efa534c8ff" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,36 +175,67 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1305243461">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="477" />
+          <entry key="xml" value="32" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="477" />
+          <entry key="XML" value="32" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="xml" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="XML" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_default_widgets.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="133" column="45" lean-forward="true" selection-start-line="133" selection-start-column="45" selection-end-line="133" selection-end-column="45" />
+            <state relative-caret-position="188">
+              <caret line="232" column="40" lean-forward="true" selection-start-line="232" selection-start-column="40" selection-end-line="232" selection-end-column="40" />
             </state>
           </provider>
           <provider editor-type-id="android-designer2" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/drawable/border_circle.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/res/drawable/border_squere.xml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/dji/chrispy/drone/CompleteWidgetActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="136" column="37" lean-forward="true" selection-start-line="136" selection-start-column="37" selection-end-line="136" selection-end-column="37" />
+            <state relative-caret-position="306">
+              <caret line="201" column="81" selection-start-line="201" selection-start-column="81" selection-end-line="201" selection-end-column="81" />
               <folding>
-                <element signature="e#3396#3936#0" expanded="true" />
-                <element signature="e#3935#3936#0" expanded="true" />
-                <element signature="e#3976#4568#0" expanded="true" />
-                <element signature="e#4567#4568#0" expanded="true" />
-                <element signature="e#4608#5199#0" expanded="true" />
-                <element signature="e#5198#5199#0" expanded="true" />
-                <element signature="e#5295#5570#0" expanded="true" />
-                <element signature="e#5569#5570#0" expanded="true" />
-                <element signature="e#5573#6346#0" expanded="true" />
-                <element signature="e#6345#6346#0" expanded="true" />
-                <element signature="method#onResume#0;class#CompleteWidgetActivity#0" />
+                <element signature="e#20922#21633#0" />
               </folding>
             </state>
           </provider>
@@ -311,12 +330,55 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
-              <item name="ChrispyDrone" type="1abcf292:AndroidViewProjectNode" />
+              <item name="ChrispyDrone-KDrone" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="ChrispyDrone-KDrone" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="ChrispyDrone-KDrone" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="drone" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ChrispyDrone-KDrone" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="ChrispyDrone-KDrone" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="ChrispyDrone-KDrone" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="ChrispyDrone-KDrone" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="ChrispyDrone-KDrone" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="xml" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="ChrispyDrone-KDrone" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
             </path>
           </expand>
@@ -325,11 +387,12 @@
       </pane>
       <pane id="PackagesPane" />
       <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="device.picker.selection" value="05157df5cc3a263b" />
+    <property name="device.picker.selection" value="H8WDU16630003366" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
@@ -425,10 +488,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.20604026" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.20565553" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -443,7 +506,7 @@
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.32907802" />
       <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.5013423" side_tool="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.7154362" visible="true" weight="0.26241136" />
+      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.7154362" visible="true" weight="0.26110363" />
       <window_info anchor="bottom" id="Android Profiler" order="9" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
@@ -526,8 +589,6 @@
       </provider>
       <provider selected="true" editor-type-id="android-designer2" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/border_squere.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/border_circle.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dji/chrispy/drone/custom/CustomizedBatteryWidget.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -616,30 +677,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/border_squere.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dji/chrispy/drone/CompleteWidgetActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="136" column="37" lean-forward="true" selection-start-line="136" selection-start-column="37" selection-end-line="136" selection-end-column="37" />
+        <state relative-caret-position="306">
+          <caret line="201" column="81" selection-start-line="201" selection-start-column="81" selection-end-line="201" selection-end-column="81" />
           <folding>
-            <element signature="e#3396#3936#0" expanded="true" />
-            <element signature="e#3935#3936#0" expanded="true" />
-            <element signature="e#3976#4568#0" expanded="true" />
-            <element signature="e#4567#4568#0" expanded="true" />
-            <element signature="e#4608#5199#0" expanded="true" />
-            <element signature="e#5198#5199#0" expanded="true" />
-            <element signature="e#5295#5570#0" expanded="true" />
-            <element signature="e#5569#5570#0" expanded="true" />
-            <element signature="e#5573#6346#0" expanded="true" />
-            <element signature="e#6345#6346#0" expanded="true" />
-            <element signature="method#onResume#0;class#CompleteWidgetActivity#0" />
+            <element signature="e#20922#21633#0" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/drawable/border_circle.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_default_widgets.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="133" column="45" lean-forward="true" selection-start-line="133" selection-start-column="45" selection-end-line="133" selection-end-column="45" />
+        <state relative-caret-position="188">
+          <caret line="232" column="40" lean-forward="true" selection-start-line="232" selection-start-column="40" selection-end-line="232" selection-end-column="40" />
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
