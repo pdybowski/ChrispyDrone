@@ -15,12 +15,10 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         custom:sourceCameraNameVisibility="true"/>
-
     <dji.ux.widget.FPVOverlayWidget
         android:id="@+id/fpv_overlay_widget"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,15 +26,13 @@
         android:layout_toLeftOf="@+id/CameraCapturePanel"
         android:layout_below="@+id/camera"
         tools:ignore="RtlHardcoded">
-
         <dji.ux.widget.RadarWidget
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"/>
-
     </RelativeLayout>
 
-   <!-- <FrameLayout
+    <!-- <FrameLayout
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:id="@+id/secondary_video_view"
@@ -51,7 +47,6 @@
             custom:sourceCameraNameVisibility="true"
             custom:videoSource="secondary"/>
     </FrameLayout>-->
-
     <!--dont need-->
     <LinearLayout
         android:id="@+id/camera"
@@ -81,7 +76,7 @@
         android:layout_width="50dp"
         android:layout_height="45dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="2dp"
         android:background="@color/dark_gray"/>
     <dji.ux.widget.controls.CameraCaptureWidget
@@ -93,6 +88,8 @@
         android:layout_marginTop="2dp"
         android:layout_marginBottom="2dp"
         android:background="@color/dark_gray"/>
+
+    <!--TANK TYPE BUTTON-->
     <Button
         android:id="@+id/menu_button"
         android:layout_width="50dp"
@@ -101,13 +98,41 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="2dp"
-        android:text="@string/btn_menu"
+        android:text="@string/btn_tank_type"
         android:textColor="@color/white"
         android:background="@color/dark_gray"/>
-
-    <!--OVERLAY MENU-->
+    <!--TANK TYPES BUTTONS-->
     <LinearLayout
-        android:id="@+id/options"
+        android:id="@+id/tank_option"
+        android:layout_width="108dp"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@+id/menu_button"
+        android:layout_marginTop="133dp"
+        android:visibility="invisible">
+        <Button
+            android:id="@+id/tank1_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:text="TANK1"
+            android:textColor="@color/white"
+            android:background="@color/dark_gray"/>
+        <Button
+            android:id="@+id/tank2_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_toLeftOf="@+id/tank1_button"
+            android:text="TANK2"
+            android:textColor="@color/white"
+            android:background="@color/dark_gray"/>
+    </LinearLayout>
+    <!--======================================================-->
+    <!--SQUARE LAYOUT BUTTON-->
+    <!--<LinearLayout
+        android:id="@+id/square_option"
         android:layout_width="108dp"
         android:layout_height="50dp"
         android:layout_toLeftOf="@+id/menu_button"
@@ -124,16 +149,15 @@
             android:textColor="@color/white"
             android:background="@color/dark_gray"/>
     </LinearLayout>
-
+    &lt;!&ndash;CIRCLE LAYOUT BUTTON&ndash;&gt;
     <LinearLayout
-    android:id="@+id/options2"
+    android:id="@+id/circle_option"
     android:layout_width="108dp"
     android:layout_height="50dp"
     android:layout_toLeftOf="@+id/CameraCapturePanel"
     android:layout_alignParentRight="true"
     android:layout_marginTop="131dp"
     android:visibility="invisible">
-
     <Button
         android:id="@+id/circle_button"
         android:layout_width="50dp"
@@ -143,31 +167,28 @@
         android:text="@string/circle_btn"
         android:textColor="@color/white"
         android:background="@color/dark_gray"/>
-    </LinearLayout>
+    </LinearLayout>-->
 
-    <!-- Added by Daniel -->
+    <!--CHANGE COLOR BUTTON-->
     <LinearLayout
-        android:id="@+id/options3"
-        android:layout_width="108dp"
+        android:id="@+id/color_option"
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_toLeftOf="@+id/CameraCapturePanel"
+        android:layout_below="@id/measure_button"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="235dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:visibility="invisible">
         <Button
             android:id="@+id/color_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
             android:text="Color"
             android:textColor="@color/white"
             android:background="@color/dark_gray"/>
     </LinearLayout>
-    <!-- Added by Daniel -->
 
-
-    <!--circle-->
+    <!--CIRCLE LAYOUT-->
     <LinearLayout
         android:id="@+id/pointer1"
         android:layout_width="200dp"
@@ -186,7 +207,7 @@
             android:textSize="12sp" />
     </LinearLayout>
 
-    <!--square-->
+    <!--SQUERE LAYOUT-->
     <LinearLayout
         android:id="@+id/pointer2"
         android:layout_width="200dp"
@@ -205,8 +226,27 @@
             android:textSize="12dp" />
     </LinearLayout>
 
-    <!-- Added -->
-    <!--Buttons to start and take height,width,distance measurment-->
+    <!--LINEAR LAYOUT-->
+    <LinearLayout
+        android:id="@+id/linearPointer"
+        android:layout_width="500dp"
+        android:layout_height="2dp"
+        android:gravity="center"
+        android:background="@drawable/border_line"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:visibility="invisible">
+        <!--<TextView
+            android:id="@+id/cross3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="+"
+            android:textSize="12dp" />-->
+    </LinearLayout>
+
+    <!--============ Buttons to start and take height,width,distance measurment =============-->
+    <!-- ROOF OR WALL BUTTON TYPE-->
     <Button
         android:id="@+id/type_measure_button"
         android:layout_width="50dp"
@@ -215,12 +255,41 @@
         android:layout_alignParentRight="true"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="2dp"
-        android:text="@string/btn_type_measure"
+        android:text="@string/btn_roof_wall"
         android:textColor="@color/white"
-        android:background="@color/dark_gray" />
+        android:background="@color/dark_gray"
+        android:enabled="false"/>
 
+    <LinearLayout
+        android:id="@+id/meas_option"
+        android:layout_width="108dp"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@+id/type_measure_button"
+        android:layout_marginTop="187dp"
+        android:visibility="invisible">
+        <Button
+            android:id="@+id/roof_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:text="ROOF"
+            android:textColor="@color/white"
+            android:background="@color/dark_gray"/>
+        <Button
+            android:id="@+id/wall_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_toLeftOf="@+id/roof_button"
+            android:text="WALL"
+            android:textColor="@color/white"
+            android:background="@color/dark_gray"/>
+    </LinearLayout>
 
-    <Button
+    <!-- HEIGHT -->
+    <!--<Button
         android:id="@+id/altitude_button"
         android:layout_below="@id/CameraCapturePanel"
         android:layout_width="50dp"
@@ -232,9 +301,10 @@
         android:layout_centerInParent="true"
         android:textColor="@color/white"
         android:background="@color/dark_gray"
-        android:visibility="invisible"/>
+        android:visibility="invisible"/>-->
 
-    <Button
+    <!--WIDTH-->
+<!--    <Button
         android:id="@+id/width_button"
         android:layout_below="@id/menu_button"
         android:layout_width="50dp"
@@ -246,9 +316,10 @@
         android:layout_centerInParent="true"
         android:textColor="@color/white"
         android:background="@color/dark_gray"
-        android:visibility="invisible"/>
+        android:visibility="invisible"/>-->
 
-    <Button
+    <!--DISTANCE-->
+    <!--<Button
         android:id="@+id/distance_button"
         android:layout_below="@id/type_measure_button"
         android:layout_width="50dp"
@@ -260,8 +331,19 @@
         android:layout_centerInParent="true"
         android:textColor="@color/white"
         android:background="@color/dark_gray"
-        android:visibility="invisible"/>
+        android:visibility="invisible"/>-->
 
+    <!-- INSTRUCTIONS -->
+    <TextView android:id="@+id/measInstruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="100dp"
+        android:text="Press TANK button to choose a tank"
+        android:textColor="@color/white"
+        android:background="@color/dark_gray"/>
+
+    <!-- MEASUREMENT BUTTON -->
     <Button
         android:id="@+id/measure_button"
         android:layout_width="50dp"
@@ -272,20 +354,20 @@
         android:layout_marginBottom="2dp"
         android:text="@string/btn_measure"
         android:textColor="@color/white"
-        android:background="@color/dark_gray" />
+        android:background="@color/dark_gray"
+        android:enabled="false"/>
 
+    <!-- RESULT OF MEASUREMENT -->
     <TextView android:id="@+id/resultOfMeausurementTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="30dp"
         android:text=""
         android:textColor="@color/white"
         android:background="@color/dark_gray"/>
 
-
-    <!-- -->>
-
+    <!--=====================================================================-->
     <!--compass in the left-down corner-->
     <LinearLayout
         android:layout_width="match_parent"
