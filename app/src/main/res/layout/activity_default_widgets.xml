@@ -76,7 +76,7 @@
         android:layout_width="50dp"
         android:layout_height="45dp"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="2dp"
         android:background="@color/dark_gray"/>
     <dji.ux.widget.controls.CameraCaptureWidget
@@ -107,7 +107,7 @@
         android:layout_width="108dp"
         android:layout_height="50dp"
         android:layout_toLeftOf="@+id/menu_button"
-        android:layout_marginTop="183dp"
+        android:layout_marginTop="133dp"
         android:visibility="invisible">
         <Button
             android:id="@+id/tank1_button"
@@ -172,18 +172,17 @@
     <!--CHANGE COLOR BUTTON-->
     <LinearLayout
         android:id="@+id/color_option"
-        android:layout_width="108dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_toLeftOf="@+id/CameraCapturePanel"
+        android:layout_below="@id/measure_button"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="235dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
         android:visibility="invisible">
         <Button
             android:id="@+id/color_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
             android:text="Color"
             android:textColor="@color/white"
             android:background="@color/dark_gray"/>
@@ -227,7 +226,7 @@
             android:textSize="12dp" />
     </LinearLayout>
 
-    <!--SQUERE LAYOUT-->
+    <!--LINEAR LAYOUT-->
     <LinearLayout
         android:id="@+id/linearPointer"
         android:layout_width="500dp"
@@ -236,7 +235,7 @@
         android:background="@drawable/border_line"
         android:layout_centerInParent="true"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="invisible">
         <!--<TextView
             android:id="@+id/cross3"
             android:layout_width="wrap_content"
@@ -245,6 +244,7 @@
             android:text="+"
             android:textSize="12dp" />-->
     </LinearLayout>
+
     <!--============ Buttons to start and take height,width,distance measurment =============-->
     <!-- ROOF OR WALL BUTTON TYPE-->
     <Button
@@ -259,12 +259,13 @@
         android:textColor="@color/white"
         android:background="@color/dark_gray"
         android:enabled="false"/>
+
     <LinearLayout
         android:id="@+id/meas_option"
         android:layout_width="108dp"
         android:layout_height="50dp"
         android:layout_toLeftOf="@+id/type_measure_button"
-        android:layout_marginTop="237dp"
+        android:layout_marginTop="187dp"
         android:visibility="invisible">
         <Button
             android:id="@+id/roof_button"
@@ -342,7 +343,7 @@
         android:textColor="@color/white"
         android:background="@color/dark_gray"/>
 
-    <!-- START MEASUREMENT BUTTON -->
+    <!-- MEASUREMENT BUTTON -->
     <Button
         android:id="@+id/measure_button"
         android:layout_width="50dp"

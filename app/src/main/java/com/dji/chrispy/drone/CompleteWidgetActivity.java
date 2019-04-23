@@ -70,6 +70,7 @@ public class CompleteWidgetActivity extends Activity {
     private Button colorBtn;
     private LinearLayout square_option;
     private LinearLayout circle_option;
+    private LinearLayout linearPointer;
     private LinearLayout tank_option;
     private LinearLayout meas_option;
     private LinearLayout color_option;
@@ -115,8 +116,10 @@ public class CompleteWidgetActivity extends Activity {
             "Go to the left side of a surface and press MEAS",
             "Go to the right side of a surface and press MEAS",
             "Press RESULT to show measurement result"};
-    private String[] finishInstructions = {
-            "Press NEW to start new measurement"};
+    //flags for roof
+    //tank1Flag is a flag for 1st type of a roof
+    //roofFlag is to inform program if we press ROOF type to measue.
+    //when roofFla takes false value it means that we chose to measure WALL
     private boolean tank1Flag, tank2Flag, roofFlag;
 
     @Override
@@ -154,6 +157,7 @@ public class CompleteWidgetActivity extends Activity {
 
         pointerCircle = findViewById(R.id.pointer1);
         pointerSquere = findViewById(R.id.pointer2);
+        linearPointer = findViewById(R.id.linearPointer);
         //altitudeBtn = findViewById(R.id.altitude_button);
         resultOfMeausurementTextView = findViewById(R.id.resultOfMeausurementTextView);
         //widthBtn = findViewById(R.id.width_button);
@@ -197,6 +201,7 @@ public class CompleteWidgetActivity extends Activity {
                 tank_option.setVisibility(View.INVISIBLE);
                 menuBtn.setText("Tank1");
                 measInstruction.setText("Press TYPE to choose if ROOF or WALL");
+                tank1Flag = true;
             }
         });
 
@@ -208,6 +213,7 @@ public class CompleteWidgetActivity extends Activity {
                 tank_option.setVisibility(View.INVISIBLE);
                 menuBtn.setText("Tank2");
                 measInstruction.setText("Press TYPE to choose if ROOF or WALL");
+                tank2Flag = true;
             }
         });
 
@@ -226,10 +232,14 @@ public class CompleteWidgetActivity extends Activity {
         roofBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menuBtn.setEnabled(false);
+                typeOfMeasureBtn.setEnabled(false);
                 measureBtn.setEnabled(true);
                 meas_option.setVisibility(View.INVISIBLE);
                 typeOfMeasureBtn.setText("Roof");
                 measInstruction.setText(roofInstructions[countInstructionText]);
+                linearPointer.setVisibility(View.VISIBLE);
+                color_option.setVisibility(View.VISIBLE);
                 roofFlag = true;
             }
         });
@@ -237,9 +247,12 @@ public class CompleteWidgetActivity extends Activity {
         wallBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                menuBtn.setEnabled(false);
+                typeOfMeasureBtn.setEnabled(false);
                 measureBtn.setEnabled(true);
                 meas_option.setVisibility(View.INVISIBLE);
                 typeOfMeasureBtn.setText("Wall");
+                measInstruction.setText(wallNotFromGroundInstructions[countInstructionText]);
                 roofFlag = false;
             }
         });
@@ -250,7 +263,7 @@ public class CompleteWidgetActivity extends Activity {
                 menuBtn.setEnabled(false);      //if we did first measurement we couldnt change TANK
                 typeOfMeasureBtn.setEnabled(false);     //if we did first measurement we couldnt change ROOF to WALL or WALL to ROOF
                 countInstructionText++;
-                if(measureBtn.getText() == "NEW"){      //measurement from the begining
+                if(measureBtn.getText() == "NEW"){      //restart to beginning config
                     countInstructionText = 0;
                     measInstruction.setText("Press TANK button to choose a tank");
                     menuBtn.setText("TANK");
@@ -258,30 +271,60 @@ public class CompleteWidgetActivity extends Activity {
                     measureBtn.setText("MEAS");
                     resultOfMeausurementTextView.setText("");
                     menuBtn.setEnabled(true);
+                    tank1Flag = false;
+                    tank2Flag = false;
                     return;
                 }
-                if(countInstructionText == roofInstructions.length){    //if we press RESULT then we get result of our measurement
-                    resultOfMeausurementTextView.setText("Roof height: " + String.valueOf( GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude())) + "\n" +
-                            "Roof surface: " + "POWIERZCHNIA");
-                    measInstruction.setText("Press NEW to start new measurement");
-                    measureBtn.setText("NEW");
-                    return;
-                }
-                if(roofFlag == true){       //if we have roof type
-                    if(countInstructionText == roofInstructions.length-1){  //if we finished all the measurements
+                if(roofFlag == true) {       //if we have ROOF type
+                    if (countInstructionText == roofInstructions.length) {    //if we press RESULT then we get result of our measurement
+                        if(tank1Flag){      //if we chose tank1, algorythm for tank1 roof surface
+                            resultOfMeausurementTextView.setText("Roof height: " + String.valueOf(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude())) + "\n" +
+                                    "Roof surface: " + "POWIERZCHNIA DACHU 1");
+                        }
+                        else if(tank2Flag){     //if we chose tank2, algorythm for tank2 roof surface
+                            resultOfMeausurementTextView.setText("Roof height: " + String.valueOf(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude())) + "\n" +
+                                    "Roof surface: " + "POWIERZCHNIA DACHU 2");
+                        }
+                        measInstruction.setText("Press NEW to start new measurement");
+                        measureBtn.setText("NEW");
+                        return;
+                    } else if (countInstructionText == roofInstructions.length - 1) {  //if we finished all the measurements
                         measureBtn.setText("RESULT");
+                        measInstruction.setText(roofInstructions[countInstructionText]);
+                        pointerCircle.setVisibility(View.INVISIBLE);
+                        color_option.setVisibility(View.INVISIBLE);
                         return;
                     }
                     measInstruction.setText(roofInstructions[countInstructionText]);
+                    if (countInstructionText == 0)   //1st height
+                        Localization(droneLocationH0);
+                    if (countInstructionText == 1)   //2nd height
+                        Localization(droneLocationH1);
+                    if (countInstructionText == 2){   //height over the roof
+                        linearPointer.setVisibility(View.INVISIBLE);    //linear layout
+                        pointerCircle.setVisibility(View.VISIBLE);      //circle layout
+                        Localization(droneLocationOverRoof);
+                    }
+                }
+                else{       //if we have WALL type
+                    if(countInstructionText == wallNotFromGroundInstructions.length){    //if we press RESULT then we get result of our measurement
+                        if(tank1Flag == true)
+                        resultOfMeausurementTextView.setText("Wall surface: " + "POWIERZCHNIA");
+                        measInstruction.setText("Press NEW to start new measurement");
+                        measureBtn.setText("NEW");
+                        return;
+                    }
+                    else if(countInstructionText == wallNotFromGroundInstructions.length-1){  //if we finished all the measurements
+                        measureBtn.setText("RESULT");
+                        return;
+                    }
+                    measInstruction.setText(wallNotFromGroundInstructions[countInstructionText]);
                     if(countInstructionText == 0)   //1st height
                         Localization(droneLocationH0);
                     if(countInstructionText == 1)   //2nd height
                         Localization(droneLocationH1);
                     if(countInstructionText == 2)
                         Localization(droneLocationOverRoof);
-                }
-                else{
-                    //measInstruction.setText(wallInstructions[countInstructionText]);
                 }
             }
         });
@@ -326,14 +369,16 @@ public class CompleteWidgetActivity extends Activity {
             public void onClick(View v) {
                 GradientDrawable bckcolor1 = (GradientDrawable)pointerCircle.getBackground();
                 GradientDrawable bckcolor2 = (GradientDrawable)pointerSquere.getBackground();
+                GradientDrawable bckcolor3 = (GradientDrawable)linearPointer.getBackground();
                 bckcolor1.setStroke(10,(Integer) overlaycolors.get(overlaycolorID));
                 bckcolor2.setStroke(10,(Integer) overlaycolors.get(overlaycolorID));
+                bckcolor3.setStroke(10,(Integer) overlaycolors.get(overlaycolorID));
                 cross1.setTextColor((Integer) overlaycolors.get(overlaycolorID));
                 cross2.setTextColor((Integer) overlaycolors.get(overlaycolorID));
-
-                square_option.setVisibility(square_option.INVISIBLE);
+                //linearPointer.setTextColor((Integer) overlaycolors.get(overlaycolorID));
+                /*square_option.setVisibility(square_option.INVISIBLE);
                 circle_option.setVisibility(square_option.INVISIBLE);
-                color_option.setVisibility(color_option.INVISIBLE);
+                color_option.setVisibility(color_option.INVISIBLE);*/
 
                 colorBtn.setTextColor((Integer) overlaycolors.get(overlaycolorID));
                 overlaycolorID+=1;
