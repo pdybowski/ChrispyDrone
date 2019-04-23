@@ -295,7 +295,7 @@ public class CompleteWidgetActivity extends Activity {
             public void onClick(View v){
 
                 // start measurement
-                if (measure == false)
+                if (!measure)
                 {
                     measure = true;
                     measureBtn.setText("Stop measure");
@@ -313,19 +313,29 @@ public class CompleteWidgetActivity extends Activity {
                     }
                 }
                 // end measurement
-                else if (measure == true)
+                else if (measure)
                 {
                     measure = false;
                     measureBtn.setText("Start measure");
-                    if (typeOfMeasure == "atlitude")
+                    if (typeOfMeasure == "atlitude") //height?
                     {
                         Localization(dronelocationEnd);
-                        resultOfMeausurementTextView.setText("Height: " + String.valueOf( GetHeightDifference(dronelocationStart.getAltitude(), dronelocationEnd.getAltitude())));
+                        double height=  GetHeightDifference(dronelocationStart.getAltitude(), dronelocationEnd.getAltitude());
+                        resultOfMeausurementTextView.setText("Height: " + String.valueOf(height));
                     }
                     else if (typeOfMeasure == "width")
                     {
                         Localization(dronelocationEnd);
-                        resultOfMeausurementTextView.setText("Width: " + String.valueOf(GetDistance2D(dronelocationStart,dronelocationEnd)));
+                        if(pointerCircle.getVisibility() == pointerCircle.VISIBLE)
+                        {
+                            resultOfMeausurementTextView.setText("width: "+String.valueOf(GetWidthForCircle(height))); //dla koła
+
+                        }else if (pointerSquere.getVisibility() == pointerSquere.VISIBLE)
+                        {
+                            resultOfMeausurementTextView.setText("width: "+String.valueOf(GetWidthForSquere(height))); //dla kwadratu
+                        }
+                     //   resultOfMeausurementTextView.setText("Width: " + String.valueOf(GetDistance2D(dronelocationStart,dronelocationEnd)));
+
                     }
                     else if (typeOfMeasure == "distance")
                     {
@@ -339,62 +349,8 @@ public class CompleteWidgetActivity extends Activity {
             }
 
         });
-
-        /*ADDED BY K*/
-/*        altitudeBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                if(isMeasHeight) {
-                    isMeasHeight = false;
-                    altitudeBtn.setText("WORK");
-                    MyProperties.getInstance().altitudePoint1 = 20;     //= altitude.getAltitude();
-                }
-                else{
-                    isMeasHeight = true;
-                    altitudeBtn.setText("MEAS");
-                    MyProperties.getInstance().altitudePoint2 = 46;     //= altitude.getAltitude();
-                    dAltitudePoint = (MyProperties.getInstance().altitudePoint2 - MyProperties.getInstance().altitudePoint1);
-                    altitudeValue.setText("Hdistance: " + dAltitudePoint);
-                }
-            }
-        });
-*/
         parentView = (ViewGroup) findViewById(R.id.root_view);
-
-        /*fpvWidget = findViewById(R.id.fpv_widget);
-        fpvWidget.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onViewClick(fpvWidget);
-            }
-        });*/
-   /*     secondaryVideoView = (FrameLayout) findViewById(R.id.secondary_video_view);
-        secondaryFPVWidget = findViewById(R.id.secondary_fpv_widget);
-       secondaryFPVWidget.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                swapVideoSource();
-            }
-        });
-        updateSecondaryVideoVisibility();*/
     }
-
-    /*private void onViewClick(View view) {
-        if (view == fpvWidget && !isMapMini) {
-            resizeFPVWidget(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT, 0, 0);
-            reorderCameraCapturePanel();
-            ResizeAnimation mapViewAnimation = new ResizeAnimation(mapWidget, deviceWidth, deviceHeight, width, height, margin);
-            mapWidget.startAnimation(mapViewAnimation);
-            isMapMini = true;
-        } else if (view == mapWidget && isMapMini) {
-            hidePanels();
-            resizeFPVWidget(width, height, margin, 12);
-            reorderCameraCapturePanel();
-            ResizeAnimation mapViewAnimation = new ResizeAnimation(mapWidget, width, height, deviceWidth, deviceHeight, 0);
-            mapWidget.startAnimation(mapViewAnimation);
-            isMapMini = false;
-        }
-    }*/
 
     /* Added by Krystian */
     private void Localization(Location location)
@@ -435,6 +391,20 @@ public class CompleteWidgetActivity extends Activity {
     {
         return Math.sqrt(Math.pow(height, 2)+Math.pow(length, 2));
     }
+/**   ustawiamy drona w taki sposob, aby zawarł dach w kole lub kwadracie, wtedy wyznaczamy średnice lub bok kwadratu*/
+
+    private double GetWidthForCircle(double height){
+        double pointZero=GetHeightDifference(height, dronelocationEnd.getAltitude());
+        double width;
+        width=(0.8*pointZero)/1.9;
+       return width;
+   }
+   private double GetWidthForSquere(double height){
+       double pointZero=GetHeightDifference(height, dronelocationEnd.getAltitude());
+       double width;
+       width=(0.8*pointZero)/1.9;
+       return width;
+   }
 
     private void resizeFPVWidget(int width, int height, int margin, int fpvInsertPosition) {
         RelativeLayout.LayoutParams fpvParams = (RelativeLayout.LayoutParams) fpvWidget.getLayoutParams();
