@@ -104,28 +104,28 @@
     <!--TANK TYPES BUTTONS-->
     <LinearLayout
         android:id="@+id/tank_option"
-        android:layout_width="108dp"
+        android:layout_width="118dp"
         android:layout_height="50dp"
         android:layout_toLeftOf="@+id/menu_button"
         android:layout_marginTop="133dp"
         android:visibility="invisible">
         <Button
-            android:id="@+id/tank1_button"
-            android:layout_width="50dp"
+            android:id="@+id/sphereRoof_button"
+            android:layout_width="55dp"
             android:layout_height="50dp"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
-            android:text="TANK1"
+            android:text="SPHERE"
             android:textColor="@color/white"
             android:background="@color/dark_gray"/>
         <Button
-            android:id="@+id/tank2_button"
-            android:layout_width="50dp"
+            android:id="@+id/floatRoof_button"
+            android:layout_width="55dp"
             android:layout_height="50dp"
             android:layout_marginLeft="2dp"
             android:layout_marginRight="2dp"
-            android:layout_toLeftOf="@+id/tank1_button"
-            android:text="TANK2"
+            android:layout_toLeftOf="@+id/sphereRoof_button"
+            android:text="FLOAT"
             android:textColor="@color/white"
             android:background="@color/dark_gray"/>
     </LinearLayout>
