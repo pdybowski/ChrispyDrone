@@ -23,7 +23,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dji/chrispy/drone/CompleteWidgetActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dji/chrispy/drone/CompleteWidgetActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_default_widgets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_default_widgets.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,36 +55,37 @@
     <session id="948777275">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.63" value="2" />
+          <entry key="project.open.time.78" value="1" />
           <entry key="project.open.time.8" value="1" />
           <entry key="project.open.time.85" value="1" />
           <entry key="project.open.time.92" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="7" />
+          <entry key="java" value="8" />
           <entry key="xml" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="7" />
+          <entry key="JAVA" value="8" />
           <entry key="XML" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="7007" />
+          <entry key="java" value="7222" />
           <entry key="xml" value="1189" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7007" />
+          <entry key="JAVA" value="7222" />
           <entry key="XML" value="1189" />
         </counts>
       </usages-collector>
@@ -96,7 +96,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_default_widgets.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
+            <state relative-caret-position="493">
               <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
               <folding>
                 <element signature="e#560#806#0" />
@@ -107,13 +107,6 @@
                 <element signature="e#2959#3302#0" />
                 <element signature="e#3307#3704#0" />
                 <element signature="e#3738#4172#0" />
-                <element signature="e#4060#4083#0" expanded="true" />
-                <element signature="e#5376#6777#0" />
-                <element signature="e#7478#8095#0" />
-                <element signature="e#8126#8743#0" />
-                <element signature="e#8774#9399#0" />
-                <element signature="e#9539#10006#0" />
-                <element signature="e#10012#11066#0" />
               </folding>
             </state>
           </provider>
@@ -123,40 +116,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/dji/chrispy/drone/CompleteWidgetActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="331" column="51" lean-forward="true" selection-start-line="331" selection-start-column="51" selection-end-line="331" selection-end-column="51" />
+            <state relative-caret-position="168">
+              <caret line="437" column="91" lean-forward="true" selection-start-line="437" selection-start-column="91" selection-end-line="437" selection-end-column="91" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6393#6781#0" expanded="true" />
-                <element signature="e#6780#6781#0" expanded="true" />
-                <element signature="e#6824#7385#0" expanded="true" />
-                <element signature="e#7384#7385#0" expanded="true" />
-                <element signature="e#7428#7990#0" expanded="true" />
-                <element signature="e#7989#7990#0" expanded="true" />
-                <element signature="e#8033#8594#0" expanded="true" />
-                <element signature="e#8593#8594#0" expanded="true" />
-                <element signature="e#8639#9203#0" expanded="true" />
-                <element signature="e#9202#9203#0" expanded="true" />
-                <element signature="e#9248#9812#0" expanded="true" />
-                <element signature="e#9811#9812#0" expanded="true" />
-                <element signature="e#9860#10208#0" expanded="true" />
-                <element signature="e#10207#10208#0" expanded="true" />
-                <element signature="e#10247#11117#0" expanded="true" />
-                <element signature="e#11116#11117#0" expanded="true" />
-                <element signature="e#11156#11652#0" expanded="true" />
-                <element signature="e#11651#11652#0" expanded="true" />
-                <element signature="e#11694#17813#0" expanded="true" />
-                <element signature="e#17812#17813#0" expanded="true" />
-                <element signature="e#17893#18955#0" expanded="true" />
-                <element signature="e#18954#18955#0" expanded="true" />
-                <element signature="e#18865#19426#0" />
-                <element signature="e#20011#20275#0" />
-                <element signature="e#20281#20586#0" />
-                <element signature="e#20715#20969#0" />
-                <element signature="e#20974#21265#0" />
-                <element signature="e#19253#19582#0" />
-                <element signature="e#19588#19738#0" />
-                <element signature="e#20584#21295#0" />
+                <element signature="e#11679#19431#0" expanded="true" />
+                <element signature="e#19430#19431#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -173,8 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>resultOfMeausurement</find>
-      <find>resultOfMeausurementTextView</find>
       <find>Localization</find>
       <find>dronelocationStart</find>
       <find>Location</find>
@@ -203,6 +166,8 @@
       <find>deg2rad</find>
       <find>ForCircle</find>
       <find>height</find>
+      <find>SurfaceWallTank</find>
+      <find>GetRadiusForCircle</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2504,13 +2469,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
-            <path>
-              <item name="ChrispyDrone" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
             <path>
               <item name="ChrispyDrone" type="1abcf292:AndroidViewProjectNode" />
               <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
@@ -2519,14 +2483,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="device.picker.selection" value="05157df5cc3a263b" />
+    <property name="device.picker.selection" value="BH904DQW13" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="3.2.1" />
@@ -2653,7 +2614,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Build" order="7" visible="true" weight="0.21985815" />
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.21985815" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Logcat" order="10" />
@@ -2725,7 +2686,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_default_widgets.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
+        <state relative-caret-position="493">
           <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
           <folding>
             <element signature="e#560#806#0" />
@@ -2736,13 +2697,6 @@
             <element signature="e#2959#3302#0" />
             <element signature="e#3307#3704#0" />
             <element signature="e#3738#4172#0" />
-            <element signature="e#4060#4083#0" expanded="true" />
-            <element signature="e#5376#6777#0" />
-            <element signature="e#7478#8095#0" />
-            <element signature="e#8126#8743#0" />
-            <element signature="e#8774#9399#0" />
-            <element signature="e#9539#10006#0" />
-            <element signature="e#10012#11066#0" />
           </folding>
         </state>
       </provider>
@@ -2750,40 +2704,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/dji/chrispy/drone/CompleteWidgetActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="331" column="51" lean-forward="true" selection-start-line="331" selection-start-column="51" selection-end-line="331" selection-end-column="51" />
+        <state relative-caret-position="168">
+          <caret line="437" column="91" lean-forward="true" selection-start-line="437" selection-start-column="91" selection-end-line="437" selection-end-column="91" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6393#6781#0" expanded="true" />
-            <element signature="e#6780#6781#0" expanded="true" />
-            <element signature="e#6824#7385#0" expanded="true" />
-            <element signature="e#7384#7385#0" expanded="true" />
-            <element signature="e#7428#7990#0" expanded="true" />
-            <element signature="e#7989#7990#0" expanded="true" />
-            <element signature="e#8033#8594#0" expanded="true" />
-            <element signature="e#8593#8594#0" expanded="true" />
-            <element signature="e#8639#9203#0" expanded="true" />
-            <element signature="e#9202#9203#0" expanded="true" />
-            <element signature="e#9248#9812#0" expanded="true" />
-            <element signature="e#9811#9812#0" expanded="true" />
-            <element signature="e#9860#10208#0" expanded="true" />
-            <element signature="e#10207#10208#0" expanded="true" />
-            <element signature="e#10247#11117#0" expanded="true" />
-            <element signature="e#11116#11117#0" expanded="true" />
-            <element signature="e#11156#11652#0" expanded="true" />
-            <element signature="e#11651#11652#0" expanded="true" />
-            <element signature="e#11694#17813#0" expanded="true" />
-            <element signature="e#17812#17813#0" expanded="true" />
-            <element signature="e#17893#18955#0" expanded="true" />
-            <element signature="e#18954#18955#0" expanded="true" />
-            <element signature="e#18865#19426#0" />
-            <element signature="e#20011#20275#0" />
-            <element signature="e#20281#20586#0" />
-            <element signature="e#20715#20969#0" />
-            <element signature="e#20974#21265#0" />
-            <element signature="e#19253#19582#0" />
-            <element signature="e#19588#19738#0" />
-            <element signature="e#20584#21295#0" />
+            <element signature="e#11679#19431#0" expanded="true" />
+            <element signature="e#19430#19431#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -349,16 +349,17 @@ public class CompleteWidgetActivity extends Activity {
                 else if(roofFlag == false && sphereRoofFlag == false){
                     countInstructionText++;
                     if(countInstructionText == 1){
-                        Localization(droneLocationH1);  //top of a wall
+                        Localization(droneLocationH0);  //top of a wall
                         linearPointer.setVisibility(View.INVISIBLE);    //linear layout
                         pointerCircle.setVisibility(View.VISIBLE);      //circle layout
                     }else if(countInstructionText == 2){  //if we finished all the measurements and we want result
                         Localization(droneLocationOverRoof);    //height over tank
+                        //Localization(droneLocationH1);    //height over tank
                         pointerCircle.setVisibility(View.INVISIBLE);      //circle layout
                         measureBtn.setText("RESULT");
                     }else if(countInstructionText == 3){ //if we click RESULT
-                        resultOfMeausurementTextView.setText("Wall height: " + String.valueOf(droneLocationH1.getAltitude()) + "\n" +
-                                "Wall surface: " + String.valueOf(SurfaceWallTank(GetRadiusForCircle(droneLocationH1.getAltitude(), droneLocationOverRoof.getAltitude()), droneLocationH1.getAltitude())));
+                        resultOfMeausurementTextView.setText("Wall height: " + String.valueOf(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude())) + "\n" +
+                                "Wall surface: " + String.valueOf(SurfaceWallTank(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()),droneLocationH0.getAltitude())));
                         measInstruction.setText("Press NEW to start new measurement");
                         measureBtn.setText("NEW");
                         return;
@@ -369,6 +370,8 @@ public class CompleteWidgetActivity extends Activity {
                 else if(sphereRoofFlag){
                     countInstructionText++;
                     if(countInstructionText == 1){
+                        pointerCircle.setVisibility(View.INVISIBLE);
+                        linearPointer.setVisibility(View.VISIBLE);    //linear layout
                         Localization(droneLocationH0);  //height on the bottom of a sphere
                         measInstruction.setText("Go to measure the top of the the sphere. Press MEAS if ready.");
                     }else if(countInstructionText == 2){
@@ -426,8 +429,8 @@ public class CompleteWidgetActivity extends Activity {
 
     /** metoda do liczenia powierzchni sciany tankow */
     private double SurfaceWallTank(double radius, double height){
-        double distanceFromRoof=GetHeightDifference(height, droneLocationH1.getAltitude());
-        return 2*Math.PI*radius*distanceFromRoof;
+        //double distanceFromRoof=GetHeightDifference(height, droneLocationH1.getAltitude());
+        return 2*Math.PI*radius*height;
     }
 
     /** metoda do liczenia powierzhcni dachu stozka */
@@ -436,7 +439,7 @@ public class CompleteWidgetActivity extends Activity {
         return Math.PI*radius*Math.sqrt(Math.pow(radius,2) + Math.pow(distanceFromRoof,2));
     }
 
-    /** sphere tank */
+    /** sphere tank - promien to odgleglosc miedzy wys pocz. i kon. */
     private double SurfaceSphereTank(double radius){
         return 4*Math.PI*Math.pow(radius,2);
     }
