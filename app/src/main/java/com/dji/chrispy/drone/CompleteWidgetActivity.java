@@ -51,14 +51,13 @@ public class CompleteWidgetActivity extends Activity {
     private boolean measure = false;
 
     private Button menuBtn;
-    private Button domeRoofBtn, externRoofBtn, openRoofBtn, coneRoofBtn, sphereRoofBtn;
+    private Button distanceBtn, domeRoofBtn, externRoofBtn, openRoofBtn, coneRoofBtn, sphereRoofBtn, groundBtn, pointBtn;
 
     private Button typeOfMeasureBtn;
     private Button roofBtn;
     private Button wallBtn;
 
     private Button measureBtn;
-
 
     private Button colorBtn;
     private LinearLayout linearPointer;
@@ -67,8 +66,10 @@ public class CompleteWidgetActivity extends Activity {
     private LinearLayout color_option;
     private LinearLayout pointerCircle;
     private LinearLayout pointerSquere;
+    private LinearLayout measPoint_option;
     private TextView cross1;
     private TextView cross2;
+    private LinearLayout distanceCross;
 
     private int countInstructionText;       //number to iterate through the instruction arrays
     private TextView measInstruction;       //instruction
@@ -76,25 +77,13 @@ public class CompleteWidgetActivity extends Activity {
     private int overlaycolorID;
     private TextView resultOfMeausurementTextView;
 
-                                /*FOR ROOF*/
     private Location droneLocationH0 = new Location("Start");
     private Location droneLocationH1 = new Location("Mid");
     private Location droneLocationOverRoof = new Location("END");
 
     private ArrayList<Integer> overlaycolors = new ArrayList();
 
-    // Arrays with the instructions
-    private String[] roofInstructions = {
-            "Go to the bottom of a roof and press MEAS (cover the bottom with a line)",
-            "Go to the top of the roof and press MEAS (cover the top with a line)",
-            "Go over the roof to have the surface of the tank inside circle. Press MEAS if ready",
-            "Press RESULT to show measurement result"};
-    private String[] wallInstructions = {
-            "Go to the top of a wall to measure and press MEAS (cover the top with a line)",
-            "Go over the roof to have its surface inside circle. Press MEAS if ready",
-            "Press RESULT to show measurement result"};
-
-    private boolean domeTankRoofFlag, roofFlag, sphereRoofFlag;
+    private boolean distanceFlag, domeTankRoofFlag, roofFlag, sphereRoofFlag, groundFlag, pointFlag, openTankRoofFlag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +98,8 @@ public class CompleteWidgetActivity extends Activity {
         // WIDGETS
         menuBtn = findViewById(R.id.menu_button);
         tank_option = findViewById(R.id.tank_option);
+        measPoint_option = findViewById(R.id.measPoint_option);
+        distanceBtn = findViewById(R.id.distance_button);
         domeRoofBtn = findViewById(R.id.domeRoof_button);
         externRoofBtn = findViewById(R.id.externalRoof_button);
         openRoofBtn = findViewById(R.id.openRoof_button);
@@ -117,6 +108,8 @@ public class CompleteWidgetActivity extends Activity {
 
         typeOfMeasureBtn = findViewById(R.id.type_measure_button);
         meas_option = findViewById(R.id.meas_option);
+        groundBtn = findViewById(R.id.ground_button);
+        pointBtn = findViewById(R.id.point_button);
         roofBtn = findViewById(R.id.roof_button);
         wallBtn = findViewById(R.id.wall_button);
 
@@ -133,6 +126,8 @@ public class CompleteWidgetActivity extends Activity {
         colorBtn=findViewById(R.id.color_button);
         cross1=findViewById(R.id.cross1);
         cross2=findViewById(R.id.cross2);
+        distanceCross=findViewById(R.id.cross_for_distance);
+
         overlaycolors.add((Integer)getResources().getColor(R.color.overlay_white));
         overlaycolors.add((Integer)getResources().getColor(R.color.overlay_black));
         overlaycolors.add((Integer)getResources().getColor(R.color.overlay_red));
@@ -157,33 +152,20 @@ public class CompleteWidgetActivity extends Activity {
             }
         });
 
-        coneRoofBtn.setOnClickListener(new View.OnClickListener() {
+        distanceBtn.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
-                typeOfMeasureBtn.setEnabled(true);
+            public void onClick(View v){
                 tank_option.setVisibility(View.INVISIBLE);
-                linearPointer.setVisibility(View.INVISIBLE);
-                pointerCircle.setVisibility(View.INVISIBLE);
-                menuBtn.setText("CONE");
-                typeOfMeasureBtn.setText("TYPE");
-                measInstruction.setText("Press TYPE to choose if a ROOF or a WALL");
-                domeTankRoofFlag = true;
-                sphereRoofFlag = false;
-            }
-        });
-
-        openRoofBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                typeOfMeasureBtn.setEnabled(true);
-                tank_option.setVisibility(View.INVISIBLE);
-                linearPointer.setVisibility(View.INVISIBLE);
-                pointerCircle.setVisibility(View.INVISIBLE);
-                menuBtn.setText("OPEN");
-                typeOfMeasureBtn.setText("TYPE");
-                measInstruction.setText("Press TYPE to choose if a ROOF or a WALL");
+                typeOfMeasureBtn.setEnabled(false);
+                measureBtn.setVisibility(View.VISIBLE);
+                distanceCross.setVisibility(View.VISIBLE);
+                measureBtn.setEnabled(true);
+                menuBtn.setText("Distance");
+                measInstruction.setText("Go to the 1st point to measure. Press \"Get Point\" if ready.");
                 domeTankRoofFlag = false;
                 sphereRoofFlag = false;
+                distanceFlag = true;
+                openTankRoofFlag = false;
             }
         });
 
@@ -194,11 +176,47 @@ public class CompleteWidgetActivity extends Activity {
                 tank_option.setVisibility(View.INVISIBLE);
                 linearPointer.setVisibility(View.INVISIBLE);
                 pointerCircle.setVisibility(View.INVISIBLE);
-                menuBtn.setText("DOME");
-                typeOfMeasureBtn.setText("TYPE");
-                measInstruction.setText("Press TYPE to choose if a ROOF or a WALL");
+                menuBtn.setText("Dome");
+                typeOfMeasureBtn.setText("Type");
+                measInstruction.setText("Press \"Type\" to choose \"Roof\" or \"Wall\".");
                 domeTankRoofFlag = true;
                 sphereRoofFlag = false;
+                distanceFlag = false;
+                openTankRoofFlag = false;
+            }
+        });
+
+        openRoofBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                typeOfMeasureBtn.setEnabled(true);
+                tank_option.setVisibility(View.INVISIBLE);
+                linearPointer.setVisibility(View.INVISIBLE);
+                pointerCircle.setVisibility(View.INVISIBLE);
+                menuBtn.setText("Open");
+                typeOfMeasureBtn.setText("Type");
+                measInstruction.setText("Press \"Type\" to choose \"Roof\" or \"Wall\".");
+                domeTankRoofFlag = false;
+                sphereRoofFlag = false;
+                distanceFlag = false;
+                openTankRoofFlag = true;
+            }
+        });
+
+        coneRoofBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                typeOfMeasureBtn.setEnabled(true);
+                tank_option.setVisibility(View.INVISIBLE);
+                linearPointer.setVisibility(View.INVISIBLE);
+                pointerCircle.setVisibility(View.INVISIBLE);
+                menuBtn.setText("Cone");
+                typeOfMeasureBtn.setText("Type");
+                measInstruction.setText("Press \"Type\" to choose \"Roof\" or a \"Wall\".");
+                domeTankRoofFlag = true;
+                sphereRoofFlag = false;
+                distanceFlag = false;
+                openTankRoofFlag = false;
             }
         });
 
@@ -209,11 +227,13 @@ public class CompleteWidgetActivity extends Activity {
                 tank_option.setVisibility(View.INVISIBLE);
                 linearPointer.setVisibility(View.INVISIBLE);
                 pointerCircle.setVisibility(View.INVISIBLE);
-                menuBtn.setText("EXTERN");
-                typeOfMeasureBtn.setText("TYPE");
-                measInstruction.setText("Press TYPE to choose if a ROOF or a WALL");
+                menuBtn.setText("Extern");
+                typeOfMeasureBtn.setText("Type");
+                measInstruction.setText("Press \"Type\" to choose \"Roof\" or \"Wall\".");
+                openTankRoofFlag = true;
                 domeTankRoofFlag = false;
                 sphereRoofFlag = false;
+                distanceFlag = false;
             }
         });
 
@@ -226,10 +246,15 @@ public class CompleteWidgetActivity extends Activity {
                 linearPointer.setVisibility(View.VISIBLE);
                 pointerCircle.setVisibility(View.INVISIBLE);
                 color_option.setVisibility(View.VISIBLE);
-                menuBtn.setText("SPHERE");
-                typeOfMeasureBtn.setText("TYPE");
-                measInstruction.setText("Go to the bottom of a sphere tank. Press MEAS if ready");
+                measureBtn.setVisibility(View.VISIBLE);
+                meas_option.setVisibility(View.INVISIBLE);
+                menuBtn.setText("Sphere");
+                typeOfMeasureBtn.setText("Type");
+                measInstruction.setText("Go to the bottom of a sphere tank. Press \"Get Point\" if ready.");
+                domeTankRoofFlag = false;
                 sphereRoofFlag = true;
+                distanceFlag = false;
+                openTankRoofFlag = false;
             }
         });
 
@@ -247,6 +272,7 @@ public class CompleteWidgetActivity extends Activity {
             @Override
             public void onClick(View v) {
                 typeOfMeasureBtn.setEnabled(false);
+                measureBtn.setVisibility(View.VISIBLE);
                 measureBtn.setEnabled(true);
                 meas_option.setVisibility(View.INVISIBLE);
                 typeOfMeasureBtn.setText("Roof");
@@ -254,11 +280,13 @@ public class CompleteWidgetActivity extends Activity {
                 roofFlag = true;
                 if(domeTankRoofFlag){
                     linearPointer.setVisibility(View.VISIBLE);
-                    measInstruction.setText(roofInstructions[countInstructionText]);    //go to the bottom of a roof
+                    measInstruction.setText("Go to the bottom of a roof Press \"Get Point\" if ready.");    //go to the bottom of a roof
+                    colorBtn.setVisibility(View.VISIBLE);
                 }
                 else{
                     linearPointer.setVisibility(View.VISIBLE);
-                    measInstruction.setText(roofInstructions[countInstructionText+2]);     //go to the top of a wall
+                    colorBtn.setVisibility(View.VISIBLE);
+                    measInstruction.setText("Go to the top of a wall Press \"Get Point\" if ready.");     //go to the top of a wall
                 }
 
             }
@@ -268,12 +296,37 @@ public class CompleteWidgetActivity extends Activity {
             @Override
             public void onClick(View v) {
                 typeOfMeasureBtn.setEnabled(false);
-                measureBtn.setEnabled(true);
+                measPoint_option.setVisibility(View.VISIBLE);
                 meas_option.setVisibility(View.INVISIBLE);
-                linearPointer.setVisibility(View.VISIBLE);
                 typeOfMeasureBtn.setText("Wall");
-                measInstruction.setText(wallInstructions[countInstructionText]);
+                measInstruction.setText("Chose if you want to measure from the ground or from the point.");
                 roofFlag = false;
+            }
+        });
+
+        groundBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                measPoint_option.setVisibility(View.INVISIBLE);
+                linearPointer.setVisibility(View.VISIBLE);
+                color_option.setVisibility(View.VISIBLE);
+                measInstruction.setText("Go to the top of a wall to measure and press \"Get Point\" (cover the top with a line).");
+                groundFlag = true;
+                measureBtn.setVisibility(View.VISIBLE);
+                measureBtn.setEnabled(true);
+            }
+        });
+
+        pointBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                measPoint_option.setVisibility(View.INVISIBLE);
+                linearPointer.setVisibility(View.VISIBLE);
+                color_option.setVisibility(View.VISIBLE);
+                measureBtn.setVisibility(View.VISIBLE);
+                measInstruction.setText("Go to the 1st point where you want to start measure. Press \"Get Point\" if ready.");
+                pointFlag = true;
+                measureBtn.setEnabled(true);
             }
         });
 
@@ -282,115 +335,35 @@ public class CompleteWidgetActivity extends Activity {
             public void onClick(View v) {
                 menuBtn.setEnabled(false);      //if we did first measurement we couldnt change TANK
                 typeOfMeasureBtn.setEnabled(false);     //if we did first measurement we couldnt change ROOF to WALL or WALL to ROOF
-                if(measureBtn.getText() == "NEW"){      //restart to beginning config
-                    countInstructionText = 0;
-                    measInstruction.setText("Press TANK button to choose a tank");
-                    menuBtn.setText("TANK");
-                    typeOfMeasureBtn.setText("TYPE");
-                    measureBtn.setText("MEAS");
-                    resultOfMeausurementTextView.setText("");
-                    menuBtn.setEnabled(true);
-                    measureBtn.setEnabled(false);
-                    sphereRoofFlag = false;
+                countInstructionText++;
+                if(measureBtn.getText() == "New"){      //restart to beginning config
+                    RestartMeasurement();
                     return;
                 }
                 /** ROOF */
-                if(roofFlag == true) {
-                    /** ROOF FOR DOME | CONE */
-                    if(domeTankRoofFlag == true && sphereRoofFlag == false){
-                        countInstructionText++;
-                        if (countInstructionText == 4) {
-                            resultOfMeausurementTextView.setText("Roof height: " + String.valueOf(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude())) + "\n" +
-                                    "Roof surface: " + String.valueOf(RoofTankAlgorythm(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()), droneLocationH0.getAltitude(), droneLocationH1.getAltitude())));
-                            measInstruction.setText("Press NEW to start new measurement");
-                            measureBtn.setText("NEW");
-                            return;
-                        }
-                        measInstruction.setText(roofInstructions[countInstructionText]);
-                        if (countInstructionText == 0) {   //HEIGHT AT THE BEGNNING OF A ROOF
-                            Localization(droneLocationH0);
-                        }else if (countInstructionText == 1){   //HEIGHT AT THE TOP OF A ROOF
-                                Localization(droneLocationH1);
-                        }else if (countInstructionText == 2){   //HEIGHT IVER THE ROOF
-                            linearPointer.setVisibility(View.INVISIBLE);
-                            pointerCircle.setVisibility(View.VISIBLE);
-                            Localization(droneLocationOverRoof);
-                        }else if (countInstructionText == 3){
-                            measureBtn.setText("RESULT");
-                            pointerCircle.setVisibility(View.INVISIBLE);
-                            color_option.setVisibility(View.INVISIBLE);
-                            return;
-                        }
-                    }
-                    /** ROOF - TANKS WITH NO CONVEX ROOF: EXTERNAL | OPEN_TOP */
-                    else if(domeTankRoofFlag == false){
-                        if (countInstructionText == 0){
-                            pointerCircle.setVisibility(View.VISIBLE);
-                            linearPointer.setVisibility(View.INVISIBLE);
-                            Localization(droneLocationH0);  //height of a wall
-                            measInstruction.setText(roofInstructions[2]);   //go over the roof
-                            countInstructionText++;
-                        } else if (countInstructionText == 1) {
-                            pointerCircle.setVisibility(View.INVISIBLE);
-                            color_option.setVisibility(View.INVISIBLE);
-                            Localization(droneLocationOverRoof);    //height over the roof
-                            measureBtn.setText("RESULT");
-                            measInstruction.setText(roofInstructions[3]);   //press result
-                            countInstructionText++;
-                        } else if (countInstructionText == 2) {  //if we finished all the measurements
-                            resultOfMeausurementTextView.setText("Roof height: " + String.valueOf(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude())) + "\n" +
-                                    "Roof surface: " + String.valueOf(RoofTankAlgorythm(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()), 0, 0)));
-                            measInstruction.setText("Press NEW to start new measurement");
-                            measureBtn.setText("NEW");
-                        }
-                    }
+                if(roofFlag && !distanceFlag) {
+                    MeasureRoofTank();
                 }
                 /** WALL for DOME | CONE | EXTERNAL | OPEN_TOP | INTERNAL */
-                else if(roofFlag == false && sphereRoofFlag == false){
-                    countInstructionText++;
-                    if(countInstructionText == 1){
-                        Localization(droneLocationH0);  //top of a wall
-                        linearPointer.setVisibility(View.INVISIBLE);    //linear layout
-                        pointerCircle.setVisibility(View.VISIBLE);      //circle layout
-                    }else if(countInstructionText == 2){  //if we finished all the measurements and we want result
-                        Localization(droneLocationOverRoof);    //height over tank
-                        //Localization(droneLocationH1);    //height over tank
-                        pointerCircle.setVisibility(View.INVISIBLE);      //circle layout
-                        measureBtn.setText("RESULT");
-                    }else if(countInstructionText == 3){ //if we click RESULT
-                        resultOfMeausurementTextView.setText("Wall height: " + String.valueOf(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude())) + "\n" +
-                                "Wall surface: " + String.valueOf(SurfaceWallTank(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()),droneLocationH0.getAltitude())));
-                        measInstruction.setText("Press NEW to start new measurement");
-                        measureBtn.setText("NEW");
-                        return;
+                else if(!roofFlag && !sphereRoofFlag && !distanceFlag){
+                    if (groundFlag){                            // FROM GROUND
+                        MeasureWallFromGround();
+                    }else if(pointFlag){                                     // FROM POINT
+                        MeasureWallFromPoint();
                     }
-                    measInstruction.setText(wallInstructions[countInstructionText]);
                 }
-                /** FOR THE SPHERE */
-                else if(sphereRoofFlag){
-                    countInstructionText++;
-                    if(countInstructionText == 1){
-                        pointerCircle.setVisibility(View.INVISIBLE);
-                        linearPointer.setVisibility(View.VISIBLE);    //linear layout
-                        Localization(droneLocationH0);  //height on the bottom of a sphere
-                        measInstruction.setText("Go to measure the top of the the sphere. Press MEAS if ready.");
-                    }else if(countInstructionText == 2){
-                        Localization(droneLocationH1);  //height on the top of a sphere
-                        linearPointer.setVisibility(View.INVISIBLE);    //linear layout
-                        color_option.setVisibility(View.INVISIBLE);
-                        measInstruction.setText("Press RESULT to see results");
-                        measureBtn.setText("RESULT");
-                    }else if(countInstructionText == 3){
-                        resultOfMeausurementTextView.setText("Sphere height: " + String.valueOf(droneLocationH1.getAltitude()) + "\n" +
-                                "Sphere surface: " + String.valueOf(SurfaceSphereTank(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude())/2)));
-                        measInstruction.setText("Press NEW to start new measurement");
-                        measureBtn.setText("NEW");
-                    }
+                /** SPHERE */
+                else if(sphereRoofFlag && !distanceFlag){
+                    MeasureSphere();
+                }
+                /** DISTANCE */
+                else if(distanceFlag){
+                    DistanceBetweenTwoPoints();
                 }
             }
         });
 
-        // CLICK TO CHANGE LAYOUT COLOR
+        /** CLICK TO CHANGE LAYOUT COLOR */
         colorBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -411,21 +384,172 @@ public class CompleteWidgetActivity extends Activity {
         parentView = (ViewGroup) findViewById(R.id.root_view);
     }
 
-    /** ROOF for DOME | CONE | EXTERNAL | OPEN_TOP | */
-    private double RoofTankAlgorythm(double r, double height1, double height2){
-        double epsilon, roofHeight, P;  //values to calculate roof surface
-        if(domeTankRoofFlag){       //DOME/CONE/ROOF_FLOATING_TANK
-            roofHeight = height2 - height1;
-            epsilon = Math.sqrt(1-Math.pow(roofHeight,2)/Math.pow(r, 4));
-            P = (2*Math.PI*Math.pow(r,2)+Math.PI*Math.pow(roofHeight,2)/epsilon*Math.log((1+epsilon)/(1-epsilon)))/2;
-        }else{   //EXTERNAL_FLOATING/OPEN_TOP_TANK
+    /** DISTANCE */
+    private void DistanceBetweenTwoPoints(){
+        if(countInstructionText == 1){
+            Localization(droneLocationH0);
+            measInstruction.setText("Go to the 2nd point to measure. Press \"Get Point\" if ready.");
+        }else if(countInstructionText == 2){
+            Localization(droneLocationH1);
+            distanceCross.setVisibility(View.INVISIBLE);
+            measInstruction.setText("Press \"Result\" to show measurement result.");
+            measureBtn.setText("Result");
+        }else if(countInstructionText == 3){ //if we click RESULT
+            resultOfMeausurementTextView.setText("Distance: " + String.valueOf(GetDistance2D(droneLocationH0, droneLocationH1)));
+            measInstruction.setText("Press \"New\" to start new measurement.");
+            measureBtn.setText("New");
+        }
+    }
+
+    /** WALL from ground */
+    private void MeasureWallFromGround(){
+        if(countInstructionText == 1){
+            Localization(droneLocationH0);  //top of a wall
+            linearPointer.setVisibility(View.INVISIBLE);    //linear layout
+            pointerCircle.setVisibility(View.VISIBLE);      //circle layout
+            measInstruction.setText("Go over the roof to have the surface of the tank inside circle. Press \"Get Point\" if ready.");
+        }else if(countInstructionText == 2){  //if we finished all the measurements and we want result
+            Localization(droneLocationOverRoof);    //height over tank
+            pointerCircle.setVisibility(View.INVISIBLE);      //circle layout
+            color_option.setVisibility(View.INVISIBLE);
+            measureBtn.setVisibility(View.VISIBLE);
+            measInstruction.setText("Press \"Result\" to show measurement result.");
+            measureBtn.setText("Result");
+        }else if(countInstructionText == 3){ //if we click RESULT
+            resultOfMeausurementTextView.setText("Wall height: " + String.valueOf(droneLocationH0.getAltitude()) + "\n" +
+                    "Wall surface: " + String.valueOf(SurfaceWallTank(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()), droneLocationH0.getAltitude())));
+            measInstruction.setText("Press \"New\" to start new measurement.");
+            measureBtn.setText("New");
+        }
+    }
+
+    /** WALL from point */
+    private void MeasureWallFromPoint(){
+        if(countInstructionText == 1){
+            Localization(droneLocationH0);  //bottom point
+            measInstruction.setText("Go to the 2nd point where you want to measure. Press \"Get Point\" if ready.");
+        }else if(countInstructionText == 2){
+            Localization(droneLocationH1);    //top point
+            linearPointer.setVisibility(View.INVISIBLE);
+            pointerCircle.setVisibility(View.VISIBLE);      //circle layout
+            measInstruction.setText("Go over the roof to have the surface of the tank inside circle. Press \"Get Point\" if ready.");
+        }else if(countInstructionText == 3){  //if we finished all the measurements and we want result
+            Localization(droneLocationOverRoof);    //height over tank
+            color_option.setVisibility(View.INVISIBLE);
+            pointerCircle.setVisibility(View.INVISIBLE);
+            measInstruction.setText("Press \"Result\" to show measurement result.");
+            measureBtn.setText("Result");
+        }else if(countInstructionText == 4) {
+            resultOfMeausurementTextView.setText("Wall height: " + String.valueOf(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude()) + "\n" +
+                    "Wall surface: " + String.valueOf(SurfaceWallTank(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()), droneLocationH0.getAltitude()))));
+            measInstruction.setText("Press \"New\" to start new measurement.");
+            measureBtn.setText("New");
+        }
+    }
+
+    /** ROOF for DOME | CONE | EXTERNAL | OPEN_TOP */
+    private void MeasureRoofTank(){
+        /** ROOF FOR DOME | CONE */
+        if(domeTankRoofFlag == true && sphereRoofFlag == false){
+            if (countInstructionText == 1) {   //HEIGHT AT THE BEGNNING OF A ROOF
+                Localization(droneLocationH0);
+                measInstruction.setText("Go to the top of a roof.");
+            }else if (countInstructionText == 2){   //HEIGHT AT THE TOP OF A ROOF
+                linearPointer.setVisibility(View.INVISIBLE);
+                pointerCircle.setVisibility(View.VISIBLE);
+                Localization(droneLocationH1);
+                measInstruction.setText("Go over the roof to have the surface of the tank inside circle. Press \"Get Point\" if ready.");   //go over the roof
+            }else if (countInstructionText == 3){   //HEIGHT IVER THE ROOF
+                pointerCircle.setVisibility(View.INVISIBLE);
+                colorBtn.setVisibility(View.INVISIBLE);
+                Localization(droneLocationOverRoof);
+                measInstruction.setText("Press \"Result\" to show measurement result.");   //press result
+                measureBtn.setText("Result");
+            }else if (countInstructionText == 4) {
+                resultOfMeausurementTextView.setText("Roof height: " + String.valueOf(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude())) + "\n" +
+                        "Roof radius: " + GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()) + "\n" +
+                        "Roof surface: " + String.valueOf(RoofTankAlgorithm(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()), GetHeightDifference(droneLocationH0.getAltitude(),droneLocationH1.getAltitude()))));
+                measInstruction.setText("Press \"New\" to start new measurement.");
+                measureBtn.setText("New");
+            }
+        }
+        /** ROOF - TANKS WITH NO CONVEX ROOF: EXTERNAL | OPEN_TOP */
+        else if(!domeTankRoofFlag && openTankRoofFlag){
+            if (countInstructionText == 1){
+                pointerCircle.setVisibility(View.VISIBLE);
+                linearPointer.setVisibility(View.INVISIBLE);
+                Localization(droneLocationH0);  //height of a wall
+                measInstruction.setText("Go over the roof to have the surface of the tank inside circle. Press \"Get Point\" if ready.");   //go over the roof
+            } else if (countInstructionText == 2) {
+                pointerCircle.setVisibility(View.INVISIBLE);
+                color_option.setVisibility(View.INVISIBLE);
+                Localization(droneLocationOverRoof);    //height over the roof
+                measInstruction.setText("Press \"Result\" to show measurement result.");   //press result
+                measureBtn.setText("Result");
+            } else if (countInstructionText == 3) {  //if we finished all the measurements
+                resultOfMeausurementTextView.setText("Roof height: " + String.valueOf(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude())) + "\n" +
+                        "Roof surface: " + String.valueOf(RoofTankAlgorithm(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()), 0)));
+                measInstruction.setText("Press \"New\" to start new measurement.");
+                measureBtn.setText("New");
+            }
+        }
+    }
+
+    /** SPHERE */
+    private void MeasureSphere(){
+        if(countInstructionText == 1){
+            pointerCircle.setVisibility(View.INVISIBLE);
+            linearPointer.setVisibility(View.VISIBLE);    //linear layout
+            Localization(droneLocationH0);  //height on the bottom of a sphere
+            measInstruction.setText("Go to measure the top of the the sphere. Press \"Get point\" if ready.");
+        }else if(countInstructionText == 2){
+            Localization(droneLocationH1);  //height on the top of a sphere
+            linearPointer.setVisibility(View.INVISIBLE);    //linear layout
+            color_option.setVisibility(View.INVISIBLE);
+            measInstruction.setText("Press \"Result\" to show measurement result");
+            measureBtn.setText("Result");
+        }else if(countInstructionText == 3){
+            resultOfMeausurementTextView.setText("Sphere height: " + String.valueOf(GetHeightDifference(droneLocationH0.getAltitude(),droneLocationH1.getAltitude())) + "\n" +
+                    "Sphere surface: " + String.valueOf(SurfaceSphereTank(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude())/2)));
+            measInstruction.setText("Press \"New\" to start new measurement");
+            measureBtn.setText("New");
+        }
+    }
+
+    /** Restart measurement */
+    private void RestartMeasurement(){
+        measureBtn.setVisibility(View.INVISIBLE);
+        countInstructionText = 0;
+        measInstruction.setText("Press \"Tank\" button to choose a tank");
+        menuBtn.setText("Tank");
+        typeOfMeasureBtn.setText("Type");
+        measureBtn.setText("Get point");
+        resultOfMeausurementTextView.setText("");
+        menuBtn.setEnabled(true);
+        measureBtn.setEnabled(false);
+        sphereRoofFlag = false;
+        pointFlag = false;
+        groundFlag = false;
+        distanceFlag = false;
+        openTankRoofFlag = false;
+    }
+
+    /** Algorithm to measure surface of a roof*/
+    private double RoofTankAlgorithm(double r, double roofHeight){
+        double epsilon, P;
+        /** DOME/CONE/ROOF_FLOATING_TANK */
+        if(domeTankRoofFlag){
+            double factor = 1.6075;
+            P = 4*Math.PI*Math.pow(((Math.pow(r,2*factor))+2*Math.pow(r,factor)*Math.pow(roofHeight,factor))/3,1/factor);
+            //epsilon = Math.sqrt(1-(Math.pow(roofHeight,2)/Math.pow(r,2)));
+            //P = (2*Math.PI*Math.pow(r,2)+Math.PI*Math.pow(roofHeight,2)/epsilon*Math.log((1+epsilon)/(1-epsilon)))/2;
+        }
+        /** EXTERNAL_FLOATING/OPEN_TOP_TANK */
+        else{
             P = r*r;
         }
         return P;
     }
-
-    /** height to odleglosc miedzy wysokoscia dachu a polozeniem drona w ktorym zawiera caly dach */
-    /** radius to promien dachu */
 
     /** metoda do liczenia powierzchni sciany tankow */
     private double SurfaceWallTank(double radius, double height){
@@ -444,15 +568,15 @@ public class CompleteWidgetActivity extends Activity {
         return 4*Math.PI*Math.pow(radius,2);
     }
 
-    /** promien kola*/
-    double GetRadiusForCircle(double heightTopRoof, double heightOverRoof){
-        double distanceFromRoof=GetHeightDifference(heightTopRoof, heightOverRoof);
+    /** Circle radius */
+    double GetRadiusForCircle(double heightBottomRoof, double heightOverRoof){
+        double distanceFromRoof=GetHeightDifference(heightBottomRoof, heightOverRoof);
         double radius;
         radius=((0.8*distanceFromRoof)/1.9)/2;
         return radius;
     }
 
-    /** width w przypadku kwadratu jest jego bokiem */
+    /** width for square */
     private double GetWidthForSquere(double height){
         double distanceFromRoof=GetHeightDifference(height, droneLocationH1.getAltitude());
         double width;
@@ -472,7 +596,13 @@ public class CompleteWidgetActivity extends Activity {
         return Math.abs(height1 - height2);
     }
 
-    /*private double GetDistance2D(Location loc1, Location loc2) {
+    /** degrees to radians */
+    private double deg2rad(double deg) {
+        return deg * (Math.PI/180);
+    }
+
+    /** distance between two points */
+    private double GetDistance2D(Location loc1, Location loc2) {
         double R = 6371; // Radius of the earth in km
         double dLat = deg2rad(loc2.getLatitude()-loc1.getLatitude());  // deg2rad below
         double dLon = deg2rad(loc2.getLongitude()-loc1.getLongitude());
@@ -483,12 +613,7 @@ public class CompleteWidgetActivity extends Activity {
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
         double d = R * c * 1000; // Distance in m
         return d;
-    }*/
-
-    // zamiana stopni na radiany
-    /*private double  deg2rad(double deg) {
-        return deg * (Math.PI/180);
-    }*/
+    }
 
     @Override
     protected void onResume() {
