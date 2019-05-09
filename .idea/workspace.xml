@@ -11,19 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1a78fd67-f6a1-44d0-8821-fe092120979a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.6/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/dji/chrispy/drone/CompleteWidgetActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/dji/chrispy/drone/CompleteWidgetActivity.java" afterDir="false" />
-    </list>
+    <list default="true" id="1a78fd67-f6a1-44d0-8821-fe092120979a" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,73 +43,69 @@
     <session id="948777275">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="14" />
+          <entry key="project.open.time.107" value="1" />
           <entry key="project.open.time.22" value="1" />
-          <entry key="project.open.time.63" value="2" />
+          <entry key="project.open.time.47" value="1" />
+          <entry key="project.open.time.59" value="1" />
+          <entry key="project.open.time.63" value="3" />
+          <entry key="project.open.time.72" value="1" />
           <entry key="project.open.time.78" value="1" />
           <entry key="project.open.time.8" value="1" />
+          <entry key="project.open.time.80" value="1" />
           <entry key="project.open.time.85" value="1" />
           <entry key="project.open.time.92" value="1" />
-          <entry key="project.opened" value="7" />
+          <entry key="project.open.time.98" value="1" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="8" />
-          <entry key="xml" value="9" />
+          <entry key="java" value="11" />
+          <entry key="xml" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="8" />
-          <entry key="XML" value="9" />
+          <entry key="JAVA" value="11" />
+          <entry key="XML" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="7222" />
-          <entry key="xml" value="1189" />
+          <entry key="java" value="10102" />
+          <entry key="xml" value="1456" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7222" />
-          <entry key="XML" value="1189" />
+          <entry key="JAVA" value="10102" />
+          <entry key="XML" value="1456" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_default_widgets.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
-              <folding>
-                <element signature="e#560#806#0" />
-                <element signature="e#983#1473#0" />
-                <element signature="e#1479#2091#0" />
-                <element signature="e#2117#2489#0" />
-                <element signature="e#2515#2900#0" />
-                <element signature="e#2959#3302#0" />
-                <element signature="e#3307#3704#0" />
-                <element signature="e#3738#4172#0" />
-              </folding>
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/dji/chrispy/drone/CompleteWidgetActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="437" column="91" lean-forward="true" selection-start-line="437" selection-start-column="91" selection-end-line="437" selection-end-column="91" />
+            <state relative-caret-position="60">
+              <caret line="308" column="41" lean-forward="true" selection-start-line="308" selection-start-column="41" selection-end-line="308" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#11679#19431#0" expanded="true" />
-                <element signature="e#19430#19431#0" expanded="true" />
+                <element signature="e#16084#16874#0" />
+                <element signature="e#17561#18993#0" />
+                <element signature="e#19275#22695#0" />
+                <element signature="e#23198#24470#0" />
+                <element signature="e#23443#24007#0" />
+                <element signature="e#24242#24499#0" />
+                <element signature="e#24505#24811#0" />
+                <element signature="e#24993#25276#0" />
+                <element signature="e#25282#25573#0" />
+                <element signature="e#25886#26008#0" />
+                <element signature="e#26131#26790#0" />
+                <element signature="e#26796#27507#0" />
               </folding>
             </state>
           </provider>
@@ -138,16 +122,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Localization</find>
-      <find>dronelocationStart</find>
-      <find>Location</find>
-      <find>Now</find>
-      <find>color</find>
-      <find>type_measure_button</find>
-      <find>color_button</find>
-      <find>bckcolor2</find>
-      <find>cross1</find>
-      <find>color_option</find>
       <find>measInstruction</find>
       <find>colorBtn</find>
       <find>cross2</find>
@@ -157,17 +131,27 @@
       <find>linear</find>
       <find>roundTankRoofFlag</find>
       <find>droneLocationH1</find>
-      <find>GetHeightDifference</find>
       <find>droneLocationH0</find>
       <find>sphereTankRoofFlag</find>
       <find>domeRoofBtn</find>
       <find>visibility</find>
       <find>gone</find>
-      <find>deg2rad</find>
       <find>ForCircle</find>
       <find>height</find>
       <find>SurfaceWallTank</find>
+      <find>RoofTankAlgorythm</find>
       <find>GetRadiusForCircle</find>
+      <find>type_measure_button</find>
+      <find>MEAS</find>
+      <find>ground_button</find>
+      <find>typeOfMeasureBtn</find>
+      <find>measureBtn</find>
+      <find>measure_button</find>
+      <find>deg2rad</find>
+      <find>GetHeightDifference</find>
+      <find>MeasureSphere</find>
+      <find>distanceBtn</find>
+      <find>distanceCross</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2451,15 +2435,16 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/border_circle.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/border_squere.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/border_line.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_default_widgets.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/dji/chrispy/drone/CompleteWidgetActivity.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="50" />
+    <option name="x" value="-10" />
+    <option name="y" value="280" />
     <option name="width" value="1530" />
     <option name="height" value="1090" />
   </component>
@@ -2469,25 +2454,36 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
               <item name="ChrispyDrone" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+            </path>
+            <path>
+              <item name="ChrispyDrone" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="ChrispyDrone" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="device.picker.selection" value="BH904DQW13" />
+    <property name="device.picker.selection" value="05157df5cc3a263b" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="3.2.1" />
@@ -2599,7 +2595,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13221477" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19530201" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Captures" order="2" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="3" />
@@ -2614,7 +2610,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.21985815" />
+      <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.25248227" />
       <window_info anchor="bottom" id="Android Profiler" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Logcat" order="10" />
@@ -2630,6 +2626,38 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20268457" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Captures" order="2" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="3" />
+      <window_info id="Build Variants" order="4" side_tool="true" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info active="true" anchor="bottom" id="Build" order="7" visible="true" weight="0.23120567" />
+      <window_info anchor="bottom" id="Android Profiler" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Logcat" order="10" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Preview" order="4" />
+      <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
+      <window_info anchor="right" id="Gradle" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -2649,24 +2677,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/dji/chrispy/drone/DensityUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/border_line.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -2684,10 +2698,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="51" column="49" selection-start-line="51" selection-start-column="49" selection-end-line="51" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/border_line.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="8" lean-forward="true" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_default_widgets.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="102" column="47" selection-start-line="102" selection-start-column="47" selection-end-line="102" selection-end-column="47" />
+        <state relative-caret-position="420">
+          <caret line="290" column="21" lean-forward="true" selection-start-line="290" selection-start-column="21" selection-end-line="290" selection-end-column="21" />
           <folding>
             <element signature="e#560#806#0" />
             <element signature="e#983#1473#0" />
@@ -2697,6 +2725,15 @@
             <element signature="e#2959#3302#0" />
             <element signature="e#3307#3704#0" />
             <element signature="e#3738#4172#0" />
+            <element signature="e#4207#6539#0" />
+            <element signature="e#4805#4827#0" expanded="true" />
+            <element signature="e#6642#8043#0" />
+            <element signature="e#8080#8713#0" />
+            <element signature="e#9392#10009#0" />
+            <element signature="e#10805#11272#0" />
+            <element signature="e#11277#12331#0" />
+            <element signature="e#12337#13462#0" />
+            <element signature="e#16564#17144#0" />
           </folding>
         </state>
       </provider>
@@ -2704,12 +2741,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/dji/chrispy/drone/CompleteWidgetActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="437" column="91" lean-forward="true" selection-start-line="437" selection-start-column="91" selection-end-line="437" selection-end-column="91" />
+        <state relative-caret-position="60">
+          <caret line="308" column="41" lean-forward="true" selection-start-line="308" selection-start-column="41" selection-end-line="308" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#11679#19431#0" expanded="true" />
-            <element signature="e#19430#19431#0" expanded="true" />
+            <element signature="e#16084#16874#0" />
+            <element signature="e#17561#18993#0" />
+            <element signature="e#19275#22695#0" />
+            <element signature="e#23198#24470#0" />
+            <element signature="e#23443#24007#0" />
+            <element signature="e#24242#24499#0" />
+            <element signature="e#24505#24811#0" />
+            <element signature="e#24993#25276#0" />
+            <element signature="e#25282#25573#0" />
+            <element signature="e#25886#26008#0" />
+            <element signature="e#26131#26790#0" />
+            <element signature="e#26796#27507#0" />
           </folding>
         </state>
       </provider>
