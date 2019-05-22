@@ -279,25 +279,23 @@
         android:visibility="invisible">
     </LinearLayout>
 
-    <!-- PLUS LAYOUT-->
+    <!-- CROSS LAYOUT-->
     <LinearLayout
         android:id="@+id/cross_for_distance"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:gravity="center"
-        android:text="+"
-        android:textSize="20sp"
         android:layout_centerInParent="true"
         android:orientation="vertical"
         android:visibility="invisible">
+        <TextView
+            android:id="@+id/cross3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/distance_btn"
+            android:textSize="20dp" />
     </LinearLayout>
-    <!--<TextView
-        android:id="@+id/cross_for_distance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="+"
-        android:textSize="20sp"/>-->
 
     <!--============ Buttons to start and take height,width,distance measurment =============-->
     <!-- ROOF OR WALL BUTTON TYPE-->
@@ -312,6 +310,7 @@
         android:text="@string/btn_roof_wall"
         android:textColor="@color/white"
         android:background="@color/dark_gray"
+        android:visibility="invisible"
         android:enabled="false"/>
     <LinearLayout
         android:id="@+id/meas_option"
@@ -325,7 +324,6 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
             android:text="Roof"
             android:textColor="@color/white"
             android:background="@color/dark_gray"/>
@@ -343,9 +341,9 @@
 
     <LinearLayout
         android:id="@+id/measPoint_option"
-        android:layout_width="108dp"
+        android:layout_width="104dp"
         android:layout_height="50dp"
-        android:layout_toLeftOf="@+id/type_measure_button"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="187dp"
         android:visibility="invisible">
         <Button
@@ -353,9 +351,8 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
             android:layout_alignParentRight="true"
-            android:text="FROM GROUN"
+            android:text="from groun"
             android:textColor="@color/white"
             android:background="@color/dark_gray"/>
         <Button
@@ -363,9 +360,8 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="2dp"
-            android:layout_marginRight="2dp"
-            android:layout_toLeftOf="@+id/roof_button"
-            android:text="FROM POINT"
+            android:layout_toLeftOf="@+id/ground_button"
+            android:text="from point"
             android:textColor="@color/white"
             android:background="@color/dark_gray"/>
     </LinearLayout>
@@ -386,7 +382,8 @@
         android:visibility="invisible"/>-->
 
     <!--WIDTH-->
-<!--    <Button
+
+    <!--    <Button
         android:id="@+id/width_button"
         android:layout_below="@id/menu_button"
         android:layout_width="50dp"
@@ -406,7 +403,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="100dp"
-        android:text="Press TANK button to choose a tank"
+        android:text="Press Tank button to choose a tank"
         android:textColor="@color/white"
         android:background="@color/dark_gray"/>
 
@@ -415,7 +412,7 @@
         android:id="@+id/measure_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_below="@id/type_measure_button"
+        android:layout_below="@id/menu_button"
         android:layout_alignParentRight="true"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="2dp"

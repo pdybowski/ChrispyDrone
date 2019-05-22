@@ -67,8 +67,10 @@ public class CompleteWidgetActivity extends Activity {
     private LinearLayout pointerCircle;
     private LinearLayout pointerSquere;
     private LinearLayout measPoint_option;
+    private LinearLayout distancePointer;
     private TextView cross1;
     private TextView cross2;
+    private TextView cross3;
     private LinearLayout distanceCross;
 
     private int countInstructionText;       //number to iterate through the instruction arrays
@@ -118,6 +120,7 @@ public class CompleteWidgetActivity extends Activity {
         pointerCircle = findViewById(R.id.pointer1);
         pointerSquere = findViewById(R.id.pointer2);
         linearPointer = findViewById(R.id.linearPointer);
+        distanceCross = findViewById(R.id.cross_for_distance);
         resultOfMeausurementTextView = findViewById(R.id.resultOfMeausurementTextView);
 
         // COLORS
@@ -126,7 +129,7 @@ public class CompleteWidgetActivity extends Activity {
         colorBtn=findViewById(R.id.color_button);
         cross1=findViewById(R.id.cross1);
         cross2=findViewById(R.id.cross2);
-        distanceCross=findViewById(R.id.cross_for_distance);
+        cross3=findViewById(R.id.cross3);
 
         overlaycolors.add((Integer)getResources().getColor(R.color.overlay_white));
         overlaycolors.add((Integer)getResources().getColor(R.color.overlay_black));
@@ -138,6 +141,7 @@ public class CompleteWidgetActivity extends Activity {
         overlaycolors.add((Integer)getResources().getColor(R.color.overlay_red_half_transparent));
         overlaycolors.add((Integer)getResources().getColor(R.color.overlay_green_half_transparent));
         overlaycolors.add((Integer)getResources().getColor(R.color.overlay_blue_half_transparent));
+
 
         /** TANK TYPE BUTTON */
         menuBtn.setOnClickListener(new View.OnClickListener() {
@@ -155,10 +159,13 @@ public class CompleteWidgetActivity extends Activity {
         distanceBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
+                RestartMeasurement();
                 tank_option.setVisibility(View.INVISIBLE);
-                typeOfMeasureBtn.setEnabled(false);
+                typeOfMeasureBtn.setVisibility(View.INVISIBLE);
+                distanceCross.setVisibility((View.VISIBLE));
                 measureBtn.setVisibility(View.VISIBLE);
                 distanceCross.setVisibility(View.VISIBLE);
+                color_option.setVisibility(View.VISIBLE);
                 measureBtn.setEnabled(true);
                 menuBtn.setText("Distance");
                 measInstruction.setText("Go to the 1st point to measure. Press \"Get Point\" if ready.");
@@ -172,12 +179,13 @@ public class CompleteWidgetActivity extends Activity {
         domeRoofBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                RestartMeasurement();
+                typeOfMeasureBtn.setVisibility(View.VISIBLE);
                 typeOfMeasureBtn.setEnabled(true);
                 tank_option.setVisibility(View.INVISIBLE);
                 linearPointer.setVisibility(View.INVISIBLE);
                 pointerCircle.setVisibility(View.INVISIBLE);
                 menuBtn.setText("Dome");
-                typeOfMeasureBtn.setText("Type");
                 measInstruction.setText("Press \"Type\" to choose \"Roof\" or \"Wall\".");
                 domeTankRoofFlag = true;
                 sphereRoofFlag = false;
@@ -189,12 +197,13 @@ public class CompleteWidgetActivity extends Activity {
         openRoofBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                RestartMeasurement();
+                typeOfMeasureBtn.setVisibility(View.VISIBLE);
                 typeOfMeasureBtn.setEnabled(true);
                 tank_option.setVisibility(View.INVISIBLE);
                 linearPointer.setVisibility(View.INVISIBLE);
                 pointerCircle.setVisibility(View.INVISIBLE);
                 menuBtn.setText("Open");
-                typeOfMeasureBtn.setText("Type");
                 measInstruction.setText("Press \"Type\" to choose \"Roof\" or \"Wall\".");
                 domeTankRoofFlag = false;
                 sphereRoofFlag = false;
@@ -206,12 +215,13 @@ public class CompleteWidgetActivity extends Activity {
         coneRoofBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                RestartMeasurement();
+                typeOfMeasureBtn.setVisibility(View.VISIBLE);
                 typeOfMeasureBtn.setEnabled(true);
                 tank_option.setVisibility(View.INVISIBLE);
                 linearPointer.setVisibility(View.INVISIBLE);
                 pointerCircle.setVisibility(View.INVISIBLE);
                 menuBtn.setText("Cone");
-                typeOfMeasureBtn.setText("Type");
                 measInstruction.setText("Press \"Type\" to choose \"Roof\" or a \"Wall\".");
                 domeTankRoofFlag = true;
                 sphereRoofFlag = false;
@@ -223,12 +233,13 @@ public class CompleteWidgetActivity extends Activity {
         externRoofBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                RestartMeasurement();
+                typeOfMeasureBtn.setVisibility(View.VISIBLE);
                 typeOfMeasureBtn.setEnabled(true);
                 tank_option.setVisibility(View.INVISIBLE);
                 linearPointer.setVisibility(View.INVISIBLE);
                 pointerCircle.setVisibility(View.INVISIBLE);
                 menuBtn.setText("Extern");
-                typeOfMeasureBtn.setText("Type");
                 measInstruction.setText("Press \"Type\" to choose \"Roof\" or \"Wall\".");
                 openTankRoofFlag = true;
                 domeTankRoofFlag = false;
@@ -240,7 +251,8 @@ public class CompleteWidgetActivity extends Activity {
         sphereRoofBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                typeOfMeasureBtn.setEnabled(false);
+                RestartMeasurement();
+                typeOfMeasureBtn.setVisibility(View.INVISIBLE);
                 measureBtn.setEnabled(true);
                 tank_option.setVisibility(View.INVISIBLE);
                 linearPointer.setVisibility(View.VISIBLE);
@@ -249,7 +261,6 @@ public class CompleteWidgetActivity extends Activity {
                 measureBtn.setVisibility(View.VISIBLE);
                 meas_option.setVisibility(View.INVISIBLE);
                 menuBtn.setText("Sphere");
-                typeOfMeasureBtn.setText("Type");
                 measInstruction.setText("Go to the bottom of a sphere tank. Press \"Get Point\" if ready.");
                 domeTankRoofFlag = false;
                 sphereRoofFlag = true;
@@ -271,7 +282,7 @@ public class CompleteWidgetActivity extends Activity {
         roofBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                typeOfMeasureBtn.setEnabled(false);
+                typeOfMeasureBtn.setVisibility(View.INVISIBLE);
                 measureBtn.setVisibility(View.VISIBLE);
                 measureBtn.setEnabled(true);
                 meas_option.setVisibility(View.INVISIBLE);
@@ -281,21 +292,18 @@ public class CompleteWidgetActivity extends Activity {
                 if(domeTankRoofFlag){
                     linearPointer.setVisibility(View.VISIBLE);
                     measInstruction.setText("Go to the bottom of a roof Press \"Get Point\" if ready.");    //go to the bottom of a roof
-                    colorBtn.setVisibility(View.VISIBLE);
                 }
                 else{
                     linearPointer.setVisibility(View.VISIBLE);
-                    colorBtn.setVisibility(View.VISIBLE);
                     measInstruction.setText("Go to the top of a wall Press \"Get Point\" if ready.");     //go to the top of a wall
                 }
-
             }
         });
 
         wallBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                typeOfMeasureBtn.setEnabled(false);
+                typeOfMeasureBtn.setVisibility(View.INVISIBLE);
                 measPoint_option.setVisibility(View.VISIBLE);
                 meas_option.setVisibility(View.INVISIBLE);
                 typeOfMeasureBtn.setText("Wall");
@@ -334,14 +342,14 @@ public class CompleteWidgetActivity extends Activity {
             @Override
             public void onClick(View v) {
                 menuBtn.setEnabled(false);      //if we did first measurement we couldnt change TANK
-                typeOfMeasureBtn.setEnabled(false);     //if we did first measurement we couldnt change ROOF to WALL or WALL to ROOF
+                typeOfMeasureBtn.setVisibility(View.INVISIBLE);
+                //typeOfMeasureBtn.setEnabled(false);     //if we did first measurement we couldnt change ROOF to WALL or WALL to ROOF
                 countInstructionText++;
                 if(measureBtn.getText() == "New"){      //restart to beginning config
                     RestartMeasurement();
-                    return;
                 }
                 /** ROOF */
-                if(roofFlag && !distanceFlag) {
+                else if(roofFlag && !distanceFlag) {
                     MeasureRoofTank();
                 }
                 /** WALL for DOME | CONE | EXTERNAL | OPEN_TOP | INTERNAL */
@@ -375,6 +383,7 @@ public class CompleteWidgetActivity extends Activity {
                 bckcolor3.setStroke(10,(Integer) overlaycolors.get(overlaycolorID));
                 cross1.setTextColor((Integer) overlaycolors.get(overlaycolorID));
                 cross2.setTextColor((Integer) overlaycolors.get(overlaycolorID));
+                cross3.setTextColor((Integer) overlaycolors.get(overlaycolorID));
                 colorBtn.setTextColor((Integer) overlaycolors.get(overlaycolorID));
                 overlaycolorID+=1;
                 overlaycolorID%=10;
@@ -392,6 +401,7 @@ public class CompleteWidgetActivity extends Activity {
         }else if(countInstructionText == 2){
             Localization(droneLocationH1);
             distanceCross.setVisibility(View.INVISIBLE);
+            color_option.setVisibility(View.INVISIBLE);
             measInstruction.setText("Press \"Result\" to show measurement result.");
             measureBtn.setText("Result");
         }else if(countInstructionText == 3){ //if we click RESULT
@@ -461,7 +471,7 @@ public class CompleteWidgetActivity extends Activity {
                 measInstruction.setText("Go over the roof to have the surface of the tank inside circle. Press \"Get Point\" if ready.");   //go over the roof
             }else if (countInstructionText == 3){   //HEIGHT IVER THE ROOF
                 pointerCircle.setVisibility(View.INVISIBLE);
-                colorBtn.setVisibility(View.INVISIBLE);
+                color_option.setVisibility(View.INVISIBLE);
                 Localization(droneLocationOverRoof);
                 measInstruction.setText("Press \"Result\" to show measurement result.");   //press result
                 measureBtn.setText("Result");
@@ -519,6 +529,12 @@ public class CompleteWidgetActivity extends Activity {
     /** Restart measurement */
     private void RestartMeasurement(){
         measureBtn.setVisibility(View.INVISIBLE);
+        meas_option.setVisibility(View.INVISIBLE);
+        measPoint_option.setVisibility(View.INVISIBLE);
+        color_option.setVisibility((View.INVISIBLE));
+        typeOfMeasureBtn.setVisibility(View.INVISIBLE);
+        distanceCross.setVisibility((View.INVISIBLE));
+        linearPointer.setVisibility(View.INVISIBLE);
         countInstructionText = 0;
         measInstruction.setText("Press \"Tank\" button to choose a tank");
         menuBtn.setText("Tank");
@@ -532,6 +548,7 @@ public class CompleteWidgetActivity extends Activity {
         groundFlag = false;
         distanceFlag = false;
         openTankRoofFlag = false;
+        roofFlag = false;
     }
 
     /** Algorithm to measure surface of a roof*/
