@@ -50,6 +50,7 @@
     <string name="btn_altitude">Height</string>
     <string name="btn_width">Width</string>
     <string name="btn_distance">Distance</string>
+    <string name="Wersja">Wersja</string>
     <string-array name="iconArray">
         <item>Aircraft</item>
         <item>Home</item>
