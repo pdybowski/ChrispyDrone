@@ -463,7 +463,7 @@ public class CompleteWidgetActivity extends Activity {
         if(domeTankRoofFlag == true && sphereRoofFlag == false){
             if (countInstructionText == 1) {   //HEIGHT AT THE BEGNNING OF A ROOF
                 Localization(droneLocationH0);
-                measInstruction.setText("Go to the top of a roof.");
+                measInstruction.setText("Go to the top of a roof. Press \"Get Point\" if ready.");
             }else if (countInstructionText == 2){   //HEIGHT AT THE TOP OF A ROOF
                 linearPointer.setVisibility(View.INVISIBLE);
                 pointerCircle.setVisibility(View.VISIBLE);
