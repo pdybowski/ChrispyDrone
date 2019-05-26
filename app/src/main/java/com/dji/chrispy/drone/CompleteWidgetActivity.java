@@ -183,7 +183,6 @@ public class CompleteWidgetActivity extends Activity {
                 typeOfMeasureBtn.setVisibility(View.VISIBLE);
                 typeOfMeasureBtn.setEnabled(true);
                 tank_option.setVisibility(View.INVISIBLE);
-                linearPointer.setVisibility(View.INVISIBLE);
                 pointerCircle.setVisibility(View.INVISIBLE);
                 menuBtn.setText("Dome");
                 measInstruction.setText("Press \"Type\" to choose \"Roof\" or \"Wall\".");
@@ -282,6 +281,7 @@ public class CompleteWidgetActivity extends Activity {
         roofBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                linearPointer.setVisibility(View.VISIBLE);
                 typeOfMeasureBtn.setVisibility(View.INVISIBLE);
                 measureBtn.setVisibility(View.VISIBLE);
                 measureBtn.setEnabled(true);
@@ -290,11 +290,11 @@ public class CompleteWidgetActivity extends Activity {
                 color_option.setVisibility(View.VISIBLE);
                 roofFlag = true;
                 if(domeTankRoofFlag){
-                    linearPointer.setVisibility(View.VISIBLE);
+                    //linearPointer.setVisibility(View.VISIBLE);
                     measInstruction.setText("Go to the bottom of a roof Press \"Get Point\" if ready.");    //go to the bottom of a roof
                 }
                 else{
-                    linearPointer.setVisibility(View.VISIBLE);
+                    //linearPointer.setVisibility(View.VISIBLE);
                     measInstruction.setText("Go to the top of a wall Press \"Get Point\" if ready.");     //go to the top of a wall
                 }
             }
