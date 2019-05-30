@@ -405,7 +405,7 @@ public class CompleteWidgetActivity extends Activity {
             measInstruction.setText("Press \"Result\" to show measurement result.");
             measureBtn.setText("Result");
         }else if(countInstructionText == 3){ //if we click RESULT
-            resultOfMeausurementTextView.setText("Distance: " + String.valueOf(GetDistance2D(droneLocationH0, droneLocationH1)));
+            resultOfMeausurementTextView.setText("Distance: " + String.format("0.2f", GetDistance2D(droneLocationH0, droneLocationH1)));
             measInstruction.setText("Press \"New\" to start new measurement.");
             measureBtn.setText("New");
         }
@@ -426,8 +426,8 @@ public class CompleteWidgetActivity extends Activity {
             measInstruction.setText("Press \"Result\" to show measurement result.");
             measureBtn.setText("Result");
         }else if(countInstructionText == 3){ //if we click RESULT
-            resultOfMeausurementTextView.setText("Wall height: " + String.valueOf(droneLocationH0.getAltitude()) + "\n" +
-                    "Wall surface: " + String.valueOf(SurfaceWallTank(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()), droneLocationH0.getAltitude())));
+            resultOfMeausurementTextView.setText("Wall height: " + String.format("%.3f", droneLocationH0.getAltitude()) + "\n" +
+                    "Wall surface: " + String.format("%.3f", SurfaceWallTank(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()), droneLocationH0.getAltitude())));
             measInstruction.setText("Press \"New\" to start new measurement.");
             measureBtn.setText("New");
         }
@@ -450,8 +450,8 @@ public class CompleteWidgetActivity extends Activity {
             measInstruction.setText("Press \"Result\" to show measurement result.");
             measureBtn.setText("Result");
         }else if(countInstructionText == 4) {
-            resultOfMeausurementTextView.setText("Wall height: " + String.valueOf(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude()) + "\n" +
-                    "Wall surface: " + String.valueOf(SurfaceWallTank(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()), droneLocationH0.getAltitude()))));
+            resultOfMeausurementTextView.setText("Wall height: " + String.format("%.3f", GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude()) + "\n" +
+                    "Wall surface: " + String.format("%.3f", SurfaceWallTank(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()), droneLocationH0.getAltitude()))));
             measInstruction.setText("Press \"New\" to start new measurement.");
             measureBtn.setText("New");
         }
@@ -476,9 +476,9 @@ public class CompleteWidgetActivity extends Activity {
                 measInstruction.setText("Press \"Result\" to show measurement result.");   //press result
                 measureBtn.setText("Result");
             }else if (countInstructionText == 4) {
-                resultOfMeausurementTextView.setText("Roof height: " + String.valueOf(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude())) + "\n" +
+                resultOfMeausurementTextView.setText("Roof height: " + String.format("%0.3f", GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude())) + "\n" +
                         "Roof radius: " + GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()) + "\n" +
-                        "Roof surface: " + String.valueOf(RoofTankAlgorithm(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()), GetHeightDifference(droneLocationH0.getAltitude(),droneLocationH1.getAltitude()))));
+                        "Roof surface: " + String.format("%.3f", RoofTankAlgorithm(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()), GetHeightDifference(droneLocationH0.getAltitude(),droneLocationH1.getAltitude()))));
                 measInstruction.setText("Press \"New\" to start new measurement.");
                 measureBtn.setText("New");
             }
@@ -497,8 +497,8 @@ public class CompleteWidgetActivity extends Activity {
                 measInstruction.setText("Press \"Result\" to show measurement result.");   //press result
                 measureBtn.setText("Result");
             } else if (countInstructionText == 3) {  //if we finished all the measurements
-                resultOfMeausurementTextView.setText("Roof height: " + String.valueOf(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude())) + "\n" +
-                        "Roof surface: " + String.valueOf(RoofTankAlgorithm(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()), 0)));
+                resultOfMeausurementTextView.setText("Roof height: " + String.format("%.3f", GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude())) + "\n" +
+                        "Roof surface: " + String.format("%.3f", RoofTankAlgorithm(GetRadiusForCircle(droneLocationH0.getAltitude(), droneLocationOverRoof.getAltitude()), 0)));
                 measInstruction.setText("Press \"New\" to start new measurement.");
                 measureBtn.setText("New");
             }
@@ -519,8 +519,8 @@ public class CompleteWidgetActivity extends Activity {
             measInstruction.setText("Press \"Result\" to show measurement result");
             measureBtn.setText("Result");
         }else if(countInstructionText == 3){
-            resultOfMeausurementTextView.setText("Sphere height: " + String.valueOf(GetHeightDifference(droneLocationH0.getAltitude(),droneLocationH1.getAltitude())) + "\n" +
-                    "Sphere surface: " + String.valueOf(SurfaceSphereTank(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude())/2)));
+            resultOfMeausurementTextView.setText("Sphere height: " + String.format("%.3f", GetHeightDifference(droneLocationH0.getAltitude(),droneLocationH1.getAltitude())) + "\n" +
+                    "Sphere surface: " + String.format("%.3f", SurfaceSphereTank(GetHeightDifference(droneLocationH0.getAltitude(), droneLocationH1.getAltitude())/2)));
             measInstruction.setText("Press \"New\" to start new measurement");
             measureBtn.setText("New");
         }
