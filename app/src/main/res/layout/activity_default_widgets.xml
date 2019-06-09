@@ -92,7 +92,7 @@
     <!--TANK TYPE BUTTON-->
     <Button
         android:id="@+id/menu_button"
-        android:layout_width="50dp"
+        android:layout_width="60dp"
         android:layout_height="50dp"
         android:layout_below="@id/CameraCapturePanel"
         android:layout_alignParentRight="true"
@@ -104,15 +104,26 @@
     <!--TANK TYPES BUTTONS-->
     <LinearLayout
         android:id="@+id/tank_option"
-        android:layout_width="342dp"
+        android:layout_width="415dp"
         android:layout_height="50dp"
         android:layout_toLeftOf="@+id/menu_button"
         android:layout_marginTop="133dp"
         android:visibility="invisible">
         <!--DISTANCE-->
         <Button
-            android:id="@+id/distance_button"
+            android:id="@+id/height_button"
             android:layout_width="55dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_toLeftOf="@+id/distance_button"
+            android:text="Height"
+            android:textColor="@color/white"
+            android:background="@color/dark_gray"/>
+        <!--DISTANCE-->
+        <Button
+            android:id="@+id/distance_button"
+            android:layout_width="70dp"
             android:layout_height="50dp"
             android:layout_marginLeft="1dp"
             android:layout_marginRight="1dp"
@@ -164,7 +175,6 @@
             android:layout_width="55dp"
             android:layout_height="50dp"
             android:layout_marginLeft="1dp"
-            android:layout_marginRight="1dp"
             android:layout_toLeftOf="@+id/externalRoof_button"
             android:text="Sphere"
             android:textColor="@color/white"
@@ -341,18 +351,18 @@
 
     <LinearLayout
         android:id="@+id/measPoint_option"
-        android:layout_width="104dp"
+        android:layout_width="114dp"
         android:layout_height="50dp"
         android:layout_alignParentRight="true"
         android:layout_marginTop="187dp"
         android:visibility="invisible">
         <Button
             android:id="@+id/ground_button"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="50dp"
             android:layout_marginLeft="2dp"
             android:layout_alignParentRight="true"
-            android:text="from groun"
+            android:text="from ground"
             android:textColor="@color/white"
             android:background="@color/dark_gray"/>
         <Button
